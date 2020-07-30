@@ -3,86 +3,85 @@ package main
 import "fmt"
 
 func addBinary(a string, b string) string {
-	la,lb,l:=len(a)-1,len(b)-1,len(b)-1
-	if la>lb{
-		l=la
+	la, lb, l := len(a)-1, len(b)-1, len(b)
+	if la > lb {
+		l = len(a)
 	}
-	res:=make([]byte,l+1)
-	carry:=0
-	for la>=0&&lb>=0{
-		temp:=int(a[la]-'0')+int(b[lb]-'0')+carry
+	res := make([]byte, l+1)
+
+	carry := 0
+	for la >= 0 && lb >= 0 {
+		temp := int(a[la]-'0') + int(b[lb]-'0') + carry
 		switch temp {
 		case 3:
-			carry=1
-			res[l]='1'
+			carry = 1
+			res[l] = '1'
 		case 2:
-			carry=1
-			res[l]='0'
+			carry = 1
+			res[l] = '0'
 		case 1:
-			carry=0
-			res[l]='1'
+			carry = 0
+			res[l] = '1'
 		case 0:
-			carry=0
-			res[l]='0'
+			carry = 0
+			res[l] = '0'
 		}
 		la--
 		lb--
-		l--	
+		l--
 	}
-	for la>=0{
-		temp:=int(a[la]-'0')+carry
-		switch temp{
+	for la >= 0 {
+		temp := int(a[la]-'0') + carry
+		switch temp {
 		case 2:
-			carry=1
-			res[l]='1'
+			carry = 1
+			res[l] = '0'
 		case 1:
-			carry=0
-			res[l]='0'
+			carry = 0
+			res[l] = '1'
 		case 0:
-			carry=0
-			res[l]='0'
+			carry = 0
+			res[l] = '0'
 			break
 		}
 		la--
 		l--
 	}
-	for lb>=0{
-		temp:=int(b[lb]-'0')+carry
-		switch temp{
+	for lb >= 0 {
+		temp := int(b[lb]-'0') + carry
+		switch temp {
 		case 2:
-			carry=1
-			res[l]='1'
+			carry = 1
+			res[l] = '0'
 		case 1:
-			carry=0
-			res[l]='0'
+			carry = 0
+			res[l] = '1'
 		case 0:
-			carry=0
-			res[l]='0'
+			carry = 0
+			res[l] = '0'
 			break
 		}
 		lb--
 		l--
 	}
-	if carry==1{
-		res[l]='1'
+	if carry == 1 {
+		res[l] = '1'
 	}
-	for i:=0;i<len(res);i++{
-		if res[i]=='1'{
-			res=res[i:]
+	flag:=false
+	for i := 0; i < len(res); i++ {
+		if res[i] == '1' {
+			res = res[i:]
+			flag=true
 			break
 		}
+	}
+	if !flag {
+		return "0"
 	}
 	return string(res)
-
-
-
-
-
 }
 
-
-
-func main(){
-	fmt.Println(addBinary("11","1"))
+func main() {
+	fmt.Println(addBinary("1", "111"))
 
 }
