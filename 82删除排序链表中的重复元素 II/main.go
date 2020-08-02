@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+
 
 type ListNode struct {
 	Val  int
@@ -58,7 +58,6 @@ func deleteDuplicates1(head *ListNode) *ListNode {
 }
 
 func main() {
-	in := []int{1, 1, 1, 2, 2, 3, 4, 4, 5}
-	fmt.Println(deleteDuplicate1(in))
+
 
 }
