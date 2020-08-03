@@ -44,7 +44,7 @@ func deleteDuplicates1(head *ListNode) *ListNode {
 			cur=cur.Next// cur节点与下一个值相同，就一直往后移
 		}
 		if pre.Next==cur{
-			// cur 值没变，说明 cur 节点是非重读节点
+			// cur 值没变，说明 cur 节点是非重复节点
 			pre=pre.Next
 		}else{
 			pre.Next=cur.Next
