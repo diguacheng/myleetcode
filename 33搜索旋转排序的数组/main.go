@@ -41,9 +41,11 @@ func search(nums []int, target int) int {
 
 }
 
+
+
 func main() {
 	nums := []int{4, 5, 6, 7, 0, 1, 2}
-	target := 3
+	target :=0
 	fmt.Println(search(nums, target))
 
 }

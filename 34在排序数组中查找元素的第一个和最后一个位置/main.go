@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"	
+
+)
+
 
 func searchRange(nums []int, target int) []int {
 	n := len(nums)
@@ -34,8 +38,34 @@ func searchRange(nums []int, target int) []int {
 	}
 	return res
 }
+
+func searchRange1(nums []int, target int) []int {
+	n := len(nums)
+	if n == 0 {
+        return []int{-1,-1}
+	}
+    res := []int{-1,-1}
+	start, end := 0, n-1
+	var mid int 
+	for start < end {
+		mid = (start + end) / 2
+		if nums[mid]>=target{
+			end= mid 
+		}else{
+			start=mid+1
+		}
+	}
+	if nums[start]==target{
+		i:=start
+		for i+1<n&&nums[i+1]==target{
+			i++
+		}
+		res=[]int{start,i}
+	}
+	return res
+}
 func main() {
-	nums := []int{5, 7, 7, 8, 8, 10}
-	fmt.Println(searchRange(nums, 8))
+	nums := []int{1}
+	fmt.Println(searchRange1(nums, 1))
 
 }
