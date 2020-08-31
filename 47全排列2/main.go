@@ -1,10 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"	
+	"sort"
+)
 
-func permute(nums []int) [][]int {
+
+func permuteUnique(nums []int) [][]int {
+
 	res := make([][]int, 0)
 	temp := make([]int, 0)
+	sort.Ints(nums)
 	help(nums, temp, &res)
 	return res
 
@@ -15,10 +21,13 @@ func help(nums, temp []int, res *[][]int) {
 	if n == 0 {
 		t := make([]int, len(temp))
 		copy(t, temp)
+
 		*res = append(*res, t)
 	}
 	for i := 0; i < n; i++ {
-
+		if i != 0 && nums[i] == nums[i-1] {
+			continue
+		}
 		temp = append(temp, nums[i])
 		tempnums := append([]int{}, nums[:i]...)
 		tempnums = append(tempnums, nums[i+1:]...)
@@ -28,9 +37,8 @@ func help(nums, temp []int, res *[][]int) {
 	}
 
 }
-
 func main() {
-	nums := []int{1, 2, 3, 4}
-	fmt.Println(permute(nums))
+	nums := []int{1, 2, 3, 3}
+	fmt.Println( permuteUnique(nums))
 
 }
