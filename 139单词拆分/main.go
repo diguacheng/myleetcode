@@ -26,9 +26,50 @@ func wordBreak(s string, wordDict []string) bool {
 	return dp[len(s)]
 }
 
+func wordBreak1(s string, wordDict []string) bool {
+	wordDictSet := make(map[string]bool)
+	for _, w := range wordDict {
+		wordDictSet[w] = true
+	}
+	n:=len(s)
+	list:=make([]int,n)
+	var help func(i int)bool
+	help = func(i int) bool {
+		if i==-1{
+			return true
+		}
+		if list[i]==1{
+			return true
+		}
+		if list[i]==-1{
+			return false
+		}
+
+		res:=false 
+		for k:=i;k>=0;k--{
+			if wordDictSet[s[k:i+1]]==true{
+				res=help(k-1)||res
+			}
+		}
+		if res==true{
+			list[i]=1
+		}else{
+			list[i]=-1
+		}
+		return res
+	}
+	return help(n-1)
+
+	
+}
+
+
 func main() {
-	s := "leetcode"
-	wordDict := []string{"leet", "code"}
+	// s := "catsandog"
+	// wordDict := []string{"cats", "dog","sand","and","cat"}
+	s:="leetcode"
+	wordDict := []string{"leet","code"}
 	fmt.Println(wordBreak(s,wordDict))
+	fmt.Println(wordBreak1(s,wordDict))
 
 }
