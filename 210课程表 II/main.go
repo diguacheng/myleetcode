@@ -5,7 +5,8 @@ import (
 )
 
 func findOrder(numCourses int, prerequisites [][]int) []int {
-	G := make([][]int, numCourses)
+	// 本质是广度优先搜索 
+	G := make([][]int, numCourses)// G[i]表示从i进入的点
 	for _, pre := range prerequisites {
 		G[pre[0]] = append(G[pre[0]], pre[1])
 
@@ -18,7 +19,7 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 		flag = -1
 		for i := 0; i < numCourses; i++ {
 			if len(G[i]) == 0 && count[i] == 0 {
-
+				// 如果某个点入度为0，且未访问过。
 				flag = i
 				res = append(res, i)
 				count[i] = 1
@@ -26,6 +27,7 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 			}
 		}
 		if flag > -1 {
+			// 将flag点删除，即删除图中以flag为起点的线段
 			for i := 0; i < numCourses; i++ {
 				for j := 0; j < len(G[i]); j++ {
 					if G[i][j] == flag {
