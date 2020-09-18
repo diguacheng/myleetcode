@@ -123,8 +123,8 @@ func findOrder2(numCourses int, prerequisites [][]int) []int {
 	}
 	if flag {
 		return []int{}
+		
 	}
-
 	return res
 
 }

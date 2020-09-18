@@ -2,7 +2,7 @@ package main
 
 import "sort"
 
-func findDuplicate(nums []int) int {
+func findDuplicate1(nums []int) int {
 	sort.Ints(nums)
 	for i:=1;i<len(nums);i++ {
 		if nums[i]==nums[i-1] {
@@ -13,7 +13,7 @@ func findDuplicate(nums []int) int {
 }
 
 
-func findDuplicate(nums []int) int {
+func findDuplicate2(nums []int) int {
 	sort.Ints(nums)
 	for i:=len(nums)-1;i>=0;i--{
 		if nums[i]>i{
@@ -23,7 +23,7 @@ func findDuplicate(nums []int) int {
 	return 0
 }
 
-func findDuplicate(nums []int) int {
+func findDuplicate3(nums []int) int {
 	// 二分法 先排序 再通过二分法找重复元素
 	sort.Ints(nums)
 	l,r:=0,len(nums)-1
@@ -40,7 +40,7 @@ func findDuplicate(nums []int) int {
 
 }
 
-func findDuplicate(nums []int) int {
+func findDuplicate4(nums []int) int {
 	sort.Ints(nums)
 	for i:=len(nums)-1;i>=0;i--{
 		if nums[i]>i{
@@ -50,7 +50,7 @@ func findDuplicate(nums []int) int {
 	return 0
 }
 
-func findDuplicate(nums []int) int {
+func findDuplicate5(nums []int) int {
 	//快慢指针 重复出现 说明有环 floyd 算法 想找相遇点 再找入口点
 	slow,fast:=nums[0],nums[nums[0]]
 	for slow!=fast {

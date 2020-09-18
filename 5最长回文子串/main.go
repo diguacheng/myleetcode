@@ -32,6 +32,36 @@ func longestPalindrome(s string) string {
 	return ans
 }
 
+func longestPalindrome3(s string) string {
+	// 自底向上 动态规划
+	ans:=""
+	n:=len(s)
+	dp:=make([][]int,n)
+	for i := 0; i <n; i++{
+		dp[i]=make([]int,n)
+	}
+	for j:=0;j<n;j++{
+		for i := j; i>=0;i--{
+			if i==j{
+				dp[i][j]=1
+			}else if j-i==1{
+				if s[i]==s[j]{
+					dp[i][j]=2
+				}
+			}else if i+1<j{
+				if s[i]==s[j]&&dp[i+1][j-1]>0{
+					dp[i][j]=dp[i+1][j-1]+2
+				}
+			}
+			if dp[i][j]>len(ans){
+				ans=s[i :j+1]
+			}
+		}
+	}
+	return ans 
+}
+
+
 func longestPalindrome1(s string) string {
 	// 中心扩展法
 	if s == "" {
@@ -97,6 +127,6 @@ func longestPalindrome2(s string) string {
 }
 
 func main() {
-	fmt.Println(longestPalindrome2("babad"))
+	fmt.Println(longestPalindrome3("babad"))
 
 }
