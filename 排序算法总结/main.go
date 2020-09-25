@@ -8,6 +8,7 @@ import (
 	"time"
 )
 
+// 冒泡排序
 func BubbleSort(arr []int) []int {
 	n := len(arr)
 	for i := 0; i < n-1; i++ {
@@ -39,6 +40,7 @@ func BubbleSort1(arr []int) []int {
 	return arr
 }
 
+// 选择排序
 func selectionSort(arr []int) []int {
 	n := len(arr)
 	for i := 0; i < n-1; i++ {
@@ -53,6 +55,7 @@ func selectionSort(arr []int) []int {
 	return arr
 }
 
+// 插入排序
 func insertionSort(arr []int) []int {
 	n := len(arr)
 	for i := 1; i < n; i++ {
@@ -67,6 +70,7 @@ func insertionSort(arr []int) []int {
 	return arr
 }
 
+// 希尔排序
 func shellSort(arr []int) []int {
 	n := len(arr)
 	for gap := n / 2; gap > 0; gap = gap / 2 {
@@ -83,6 +87,7 @@ func shellSort(arr []int) []int {
 	return arr
 }
 
+// 归并排序
 func mergeSort(arr []int) []int {
 	len := len(arr)
 	if len < 2 {
@@ -116,6 +121,7 @@ func merge(left, right []int) []int {
 	return res
 }
 
+// 快速排序
 func QuickSort(arr []int) []int {
 	quickSort(arr, 0, len(arr)-1)
 	return arr
@@ -145,6 +151,7 @@ func partition(arr []int, start, end int) int {
 	return end
 }
 
+// 堆排序
 func heapSort(arr []int) []int {
 	n := len(arr)
 	heapify := func(arr []int, k int) {
@@ -159,7 +166,7 @@ func heapSort(arr []int) []int {
 				idx = right
 			}
 			if idx == k {
-				// 若根节点较大，不用将节点下称
+				// 若根节点较大，不用将节点下沉
 				break
 			}
 			arr[k], arr[idx] = arr[idx], arr[k]
@@ -181,6 +188,7 @@ func heapSort(arr []int) []int {
 }
 
 // 数组没有重读的数 且最后是有具体范围的数
+// 计数排序
 func countingSort(arr []int) []int {
 	array := make([]int, len(arr))
 	for i := 0; i < len(arr); i++ {
@@ -222,6 +230,7 @@ func countingSort1(arr []int) []int {
 	return arr
 }
 
+// 桶排序
 func bucktSort(arr []int) []int {
 	if len(arr) == 0 {
 		return arr
@@ -240,7 +249,7 @@ func bucktSort(arr []int) []int {
 		}
 	}
 
-	bucketSize := 100 // 桶的数量，可以子集定义 
+	bucketSize := 100 // 桶的数量，可以子集定义
 	bucketcount := (maxValue-minValue)/bucketSize + 1
 	buckets := make([][]int, bucketcount)
 	for i := 0; i < bucketcount; i++ {
@@ -259,54 +268,51 @@ func bucktSort(arr []int) []int {
 
 }
 
-
-
-func radixSort(arr []int)[]int{
-	n:=len(arr)
-	if n<=1{
+func radixSort(arr []int) []int {
+	n := len(arr)
+	if n <= 1 {
 		return arr
 	}
-	radix:=10 // 基数
-	maxValue:=arr[0]
-	for i:=1;i<n;i++{
-		if arr[i]>maxValue {
-			maxValue=arr[i]
+	radix := 10 // 基数
+	maxValue := arr[0]
+	for i := 1; i < n; i++ {
+		if arr[i] > maxValue {
+			maxValue = arr[i]
 		}
 	}
 	// 求出最大值的长度决定
-	maxDigit:=len(strconv.FormatInt(int64(maxValue),10)) 
-	divisor:=1 // 定义每一轮的除数 1，10，100.。。 
-	
-	// counter:=make([]int,10) // 保存每个桶中的元素个数 
-	for i:=0;i<maxDigit;i++{
-		bucket:=make([][]int,radix)// 注意 没轮都要清空 
-	
-		for j:=0;j<n;j++{
-			digit:=(arr[j]/divisor)%radix
-			bucket[digit]=append(bucket[digit],arr[j])
+	maxDigit := len(strconv.FormatInt(int64(maxValue), 10))
+	divisor := 1 // 定义每一轮的除数 1，10，100.。。
+
+	// counter:=make([]int,10) // 保存每个桶中的元素个数
+	for i := 0; i < maxDigit; i++ {
+		bucket := make([][]int, radix) // 注意 没轮都要清空
+
+		for j := 0; j < n; j++ {
+			digit := (arr[j] / divisor) % radix
+			bucket[digit] = append(bucket[digit], arr[j])
 
 		}
-		arr=[]int{}
-		for _,v:=range bucket{
-			arr=append(arr,v...)
+		arr = []int{}
+		for _, v := range bucket {
+			arr = append(arr, v...)
 		}
-		
-		divisor*=10
+
+		divisor *= 10
 	}
-	return arr 
+	return arr
 }
-
 
 func exectime(s func([]int) []int, in []int) {
 	start := time.Now()
-	res:=s(in)
+	res := s(in)
 	dur := time.Since(start)
 	fmt.Println(res)
 	fmt.Println(dur)
 
 }
 
-// 生成a-b 得不重复得序列 
+// 生成a-b 得不重复得序列
 func generateRandomNumber(start int, end int, count int) []int {
 	//范围检查
 	if end < start || (end-start) < count {
@@ -338,23 +344,22 @@ func generateRandomNumber(start int, end int, count int) []int {
 	return nums
 }
 
-func t(){
-	a:=make([]int,20)
+func t() {
+	a := make([]int, 20)
 	for i := 0; i < 20; i++ {
-		a[i]=i
+		a[i] = i
 	}
-	for i:=19;i>=1;i--{
-		temp:=a[ rand.Intn(math.MaxInt64)%20 ]
-		a[ rand.Intn(math.MaxInt64)%20 ]=a[i]
-		a[i]=temp
+	for i := 19; i >= 1; i-- {
+		temp := a[rand.Intn(math.MaxInt64)%20]
+		a[rand.Intn(math.MaxInt64)%20] = a[i]
+		a[i] = temp
 
 	}
 	fmt.Println(a)
 }
 func main() {
-	arr :=generateRandomNumber(1,21,20)
+	arr := generateRandomNumber(1, 21, 20)
 
 	exectime(radixSort, arr)
-
 
 }
