@@ -22,8 +22,24 @@ func fib(n int) int {
 
 }
 
+func numWays(n int) int {
+	if n==0{
+		return 1
+	}
+	if n<=2{
+		return n
+	}
+	res:=make([]int,n)
+	res[n-1]=1
+	res[n-2]=2
+	for i:=n-3; i >=0; i--{
+		res[i]=(res[i+1]+res[i+2])%1000000007
+	}
+	return res[0]
+}
+
 func main(){
-	fmt.Println(fib(95))
+	fmt.Println(numWays(7))
 
 	
 

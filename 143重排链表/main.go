@@ -86,6 +86,39 @@ func reserve(c *ListNode)*ListNode{
 }
 
 
+// @time 20201020 
+
+func reorderList2(head *ListNode)  {
+	if head==nil{
+		return
+	}
+	slow,fast :=head,head
+	for fast.Next!=nil&&fast.Next.Next != nil {
+		slow=slow.Next
+		fast=fast.Next.Next
+	}
+
+	c:=slow.Next 
+	var last *ListNode
+	for c!=nil{
+		next:=c.Next
+		c.Next=last
+		last=c
+		c=next
+	}
+	p:=head 
+	for last!=nil{
+		node:=last
+		last=last.Next
+		node.Next=p.Next
+		p.Next=node 
+		p=node.Next
+	}
+	return
+}
+
+
+
 func main() {
 	in := &ListNode{Val:1}
 	p := in
