@@ -115,12 +115,59 @@ func ladderLength(beginWord string, endWord string, wordList []string) int {
 
 }
 
+
+func ladderLength2(beginWord string, endWord string, wordList []string) int {
+	wordict:=make(map[string][]int)
+	for idx, word := range wordList {
+		for i:=range word{
+			w:=word[0:i]+"*"+word[i+1:]
+			if _,ok :=wordict[w];!ok{
+				wordict[w]=[]int{}
+			}
+			wordict[w]=append(wordict[w],idx)
+		}
+	}
+	used:=make([]bool,len(wordList))
+	l:=1 
+	wordList=append(wordList,beginWord)
+	q:=[]int{len(wordList)-1}
+	for len(q)>0{
+		fmt.Println(len(q))
+		nextQ:=[]int{}
+		l++ 
+		for _,qid:=range q{
+			w:=wordList[qid]
+			
+			for i:=range w{
+
+				k:=w[0:i] + "*" + w[i+1:]
+				fmt.Println("k "  , k)
+				for _,wid:=range wordict[k]{
+				
+					if wordList[wid]==endWord{
+						return l
+					}
+					if used[wid]==false{
+						nextQ=append(nextQ,wid)
+						used[wid]=true
+
+					}
+				}
+			
+			}
+		}
+		q= nextQ
+	}
+	return 0
+}
+
+
 func main() {
 
 	beginWord := "hit"
 	endWord := "cog"
 	//wordList := []string{"hot","dot","dog","lot","log","cog"}
 	wordList := []string{"hot", "cog", "dot", "dog", "hit", "lot", "log"}
-	fmt.Println(ladderLength(beginWord, endWord, wordList))
+	fmt.Println(ladderLength2(beginWord, endWord, wordList))
 
 }

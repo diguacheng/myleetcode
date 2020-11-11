@@ -15,7 +15,7 @@ func longestValidParentheses(s string) int {
 			if len(stack) > 0 {
 				temp += 2
 				stack = stack[:len(stack)-1]
-			} else {
+			}else {
 				if min < temp {
 					min=temp
 				}
@@ -31,9 +31,9 @@ func longestValidParentheses(s string) int {
 }
 
 func main() {
-	//s1 := "(()"
+	s1 := "(()"
 	s2 := ")()())"
-	//fmt.Println(longestValidParentheses(s1))
+	fmt.Println(longestValidParentheses(s1))
 	fmt.Println(longestValidParentheses(s2))
 
 }
