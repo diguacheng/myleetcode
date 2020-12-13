@@ -63,6 +63,7 @@ func reconstructQueue1(people [][]int) [][]int {
 		p=people[i]
 		copy(people[p[1]+1:i+1], people[p[1]:i+1])
 		people[p[1]]=p
+		//fmt.Println(people)
 		
 	}
 	return people
@@ -121,6 +122,6 @@ func main() {
 	people:=[][]int{
 		{9,0},{7,0},{1,9},{3,0},{2,7},{5,3},{6,0},{3,4},{6,2},{5,2},
 	}
-	fmt.Println( reconstructQueue1(people))
+	fmt.Println( reconstructQueue(people))
 
 }
