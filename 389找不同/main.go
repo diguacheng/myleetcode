@@ -10,7 +10,7 @@ func findTheDifference(s string, t string) byte {
         i++
     }
     l[t[i]-'a']++
-    for i=0;i<26;i++{
+    for i=0;i<26;i++{	
         if l[i]==1{
             return byte(i+'a')
         }
@@ -19,5 +19,5 @@ func findTheDifference(s string, t string) byte {
 }
 
 func main(){
-	
+
 }
