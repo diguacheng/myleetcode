@@ -64,7 +64,6 @@ func countRangeSum1(nums []int, lower, upper int) int {
 	return mergeCount(prefixSum)
 }
 
-
 func main() {
 	arr := []int{8, 7, 6, 5, 4, 3, 2, 1}
 	mergesort(arr)

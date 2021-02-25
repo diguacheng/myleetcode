@@ -43,7 +43,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 }
 
 func getIntersectionNode1(headA, headB *ListNode) *ListNode {
-	//  双指针 
+	//  双指针
 	if headA == nil || headB == nil {
 		return nil
 	}
@@ -75,23 +75,22 @@ func getIntersectionNode1(headA, headB *ListNode) *ListNode {
 
 }
 
-
 func getIntersectionNode2(headA, headB *ListNode) *ListNode {
 	//用一个哈希表保存链表a， 检查b中有无相同的
-	
+
 	if headA == nil || headB == nil {
 		return nil
 	}
-	m:=make(map[*ListNode]int)
-	for headA!=nil{
+	m := make(map[*ListNode]int)
+	for headA != nil {
 		m[headA]++
-		headA=headA.Next
+		headA = headA.Next
 	}
-	for headB!=nil{
-		if m[headB]==1{
+	for headB != nil {
+		if m[headB] == 1 {
 			return headB
 		}
-		headB=headB.Next
+		headB = headB.Next
 	}
 	return nil
 }

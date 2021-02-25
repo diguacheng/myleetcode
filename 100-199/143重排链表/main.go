@@ -13,8 +13,8 @@ type ListNode struct {
 // 空间复杂度为o(n)
 func reorderList(head *ListNode) {
 	//
-	if head==nil{
-		return 
+	if head == nil {
+		return
 	}
 
 	list := make([]*ListNode, 0)
@@ -25,7 +25,7 @@ func reorderList(head *ListNode) {
 	}
 	n := (len(list) + 1) / 2
 	p = head
-	for i := len(list) - 1; i >=n; i-- {
+	for i := len(list) - 1; i >= n; i-- {
 		node := list[i]
 		node.Next = p.Next
 		p.Next = node
@@ -37,103 +37,99 @@ func reorderList(head *ListNode) {
 
 }
 
-
 //  找到链表中间，将后半段转置 然后拼接 空间复杂度为o(1)
 func reorderList1(head *ListNode) {
-	time.Sleep(1*time.Millisecond)
-	if head==nil{
-		return 
+	time.Sleep(1 * time.Millisecond)
+	if head == nil {
+		return
 	}
 	// 找到中点
-	slow,fast :=head,head
-	for fast.Next!=nil&&fast.Next.Next!=nil{
-		fast=fast.Next.Next
-		slow=slow.Next
+	slow, fast := head, head
+	for fast.Next != nil && fast.Next.Next != nil {
+		fast = fast.Next.Next
+		slow = slow.Next
 	}
 	// 反转
-	c:=slow.Next // curr
-	slow.Next=nil
+	c := slow.Next // curr
+	slow.Next = nil
 	// l:=&ListNode{}// last
 	// n:=&ListNode{}// next
-	l:=reserve(c)
+	l := reserve(c)
 	// 合并
-	p:=head
-	for l!=nil&&p.Next!=nil{
-		node:=l // node
-		l=l.Next
-		node.Next=p.Next
-		p.Next=node
-		p=node.Next
+	p := head
+	for l != nil && p.Next != nil {
+		node := l // node
+		l = l.Next
+		node.Next = p.Next
+		p.Next = node
+		p = node.Next
 	}
-	if p.Next==nil&&l!=nil{
-		p.Next=l
+	if p.Next == nil && l != nil {
+		p.Next = l
 
 	}
 	return
 
 }
 
-func reserve(c *ListNode)*ListNode{
-	var l,n *ListNode
-	for c!=nil{
-		n=c.Next
-		c.Next=l
-		l=c
-		c=n
+func reserve(c *ListNode) *ListNode {
+	var l, n *ListNode
+	for c != nil {
+		n = c.Next
+		c.Next = l
+		l = c
+		c = n
 	}
 	return l
 
 }
 
+// @time 20201020
 
-// @time 20201020 
-
-func reorderList2(head *ListNode)  {
-	if head==nil{
+func reorderList2(head *ListNode) {
+	if head == nil {
 		return
 	}
-	slow,fast :=head,head
-	for fast.Next!=nil&&fast.Next.Next != nil {
-		slow=slow.Next
-		fast=fast.Next.Next
+	slow, fast := head, head
+	for fast.Next != nil && fast.Next.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
 	}
 
-	c:=slow.Next 
+	c := slow.Next
 	var last *ListNode
-	for c!=nil{
-		next:=c.Next
-		c.Next=last
-		last=c
-		c=next
+	for c != nil {
+		next := c.Next
+		c.Next = last
+		last = c
+		c = next
 	}
-	p:=head 
-	for last!=nil{
-		node:=last
-		last=last.Next
-		node.Next=p.Next
-		p.Next=node 
-		p=node.Next
+	p := head
+	for last != nil {
+		node := last
+		last = last.Next
+		node.Next = p.Next
+		p.Next = node
+		p = node.Next
 	}
 	return
 }
 
-
-
 func main() {
-	in := &ListNode{Val:1}
+	in := &ListNode{Val: 1}
 	p := in
 	for i := 2; i <= 4; i++ {
-		node := &ListNode{Val:i}
+		node := &ListNode{Val: i}
 		p.Next = node
 		p = p.Next
 	}
-	t:=time.Now()
+	t := time.Now()
 	reorderList1(in)
 	fmt.Println(time.Since(t))
 	//r(in)
 	for i := 1; i <= 5; i++ {
 		fmt.Print(in.Val)
-		in=in.Next
+		in = in.Next
 	}
 
 }

@@ -22,13 +22,12 @@ func (m *minHeap) Pop() interface{} {
 	return x
 }
 
-
 func heapSort(arr []int) []int {
-	m :=minHeap(arr)
+	m := minHeap(arr)
 	heap.Init(&m)
-	res:=[]int{}
-	for len(m)!=0{
-		res=append(res,heap.Pop(&m).(int))
+	res := []int{}
+	for len(m) != 0 {
+		res = append(res, heap.Pop(&m).(int))
 	}
 	return res
 }
@@ -39,39 +38,37 @@ func main() {
 
 }
 
-
-
-func heapSort1(arr []int)[]int{
-	n:=len(arr)
-	heapify:=func(arr []int,k int){
+func heapSort1(arr []int) []int {
+	n := len(arr)
+	heapify := func(arr []int, k int) {
 		for {
-			left:=2*k+1  // 左子树下标
-			right:=2*k+2// 右子树下标
-			idx:=k  // 根 左 右 最大值的索引
-			if left<n&&arr[left]>arr[idx]{
-				idx=left
+			left := 2*k + 1  // 左子树下标
+			right := 2*k + 2 // 右子树下标
+			idx := k         // 根 左 右 最大值的索引
+			if left < n && arr[left] > arr[idx] {
+				idx = left
 			}
-			if right<n&&arr[right]>arr[idx]{
-				idx=right
+			if right < n && arr[right] > arr[idx] {
+				idx = right
 			}
-			if idx==k{
+			if idx == k {
 				// 若根节点较大，不用将节点下沉
 				break
 			}
-			arr[k],arr[idx]=arr[idx], arr[k]
+			arr[k], arr[idx] = arr[idx], arr[k]
 			// 交换过后，idx保存的不是最大值的索引，是从根节点换下的索引
-			k=idx
+			k = idx
 			// 继续节点下沉
 		}
 	}
 
-	for i:=n/2-1;i>=0;i--{
-		heapify(arr,i)
+	for i := n/2 - 1; i >= 0; i-- {
+		heapify(arr, i)
 	}
-	for i:=n-1;i>=1;i--{
-		arr[0],arr[i]=arr[i], arr[0]
-		n-- // 注意这里的长度要减去一 
-		heapify(arr,0)
+	for i := n - 1; i >= 1; i-- {
+		arr[0], arr[i] = arr[i], arr[0]
+		n-- // 注意这里的长度要减去一
+		heapify(arr, 0)
 	}
 	return arr
 }

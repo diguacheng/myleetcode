@@ -40,7 +40,7 @@ func hasGroupsSizeX1(deck []int) bool {
 			g = gcd(g, v)
 		}
 	}
-	return g>=2
+	return g >= 2
 }
 
 func gcd(a, b int) int {

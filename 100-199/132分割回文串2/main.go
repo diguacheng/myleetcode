@@ -14,15 +14,15 @@ func minCut(s string) int {
 			return true
 		}
 		l := n / 2
-		start,end:=l-1,l
-		if n%2==1{
+		start, end := l-1, l
+		if n%2 == 1 {
 			end++
 		}
-		for start>=0{
-			if s[start]!=s[end]{
+		for start >= 0 {
+			if s[start] != s[end] {
 				return false
 			}
-			start-- 
+			start--
 			end++
 		}
 
@@ -32,10 +32,10 @@ func minCut(s string) int {
 	dp[0] = -1
 	dp[1] = 0
 	var min int
-	for i := 2; i <=n; i++ {
+	for i := 2; i <= n; i++ {
 		min = n + 1
 		for j := 1; j < i; j++ {
-			if check(s[j-1:i]) {
+			if check(s[j-1 : i]) {
 				if min > dp[j-1]+1 {
 					min = dp[j-1] + 1
 				}

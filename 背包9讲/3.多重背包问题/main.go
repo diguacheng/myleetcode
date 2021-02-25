@@ -1,6 +1,5 @@
 package main
 
-
 import "fmt"
 
 func zeroOnePack(v, w []int, m int) int {
@@ -20,40 +19,40 @@ func zeroOnePack(v, w []int, m int) int {
 	return dp[n][m]
 }
 
-func mutliPack(v, w ,s []int, m int) int {
+func mutliPack(v, w, s []int, m int) int {
 	//用1维数组
 	n := len(v)
 	dp := make([]int, m+1)
 	for i := 1; i <= n; i++ {
-		for j :=m; j >=0; j-- {
-			for k:=1;k<=s[i-1]&&k*v[i-1]<=j;k++{
+		for j := m; j >= 0; j-- {
+			for k := 1; k <= s[i-1] && k*v[i-1] <= j; k++ {
 				dp[j] = max(dp[j], dp[j-k*v[i-1]]+k*w[i-1])
 			}
-			
+
 		}
 	}
 	return dp[m]
 }
 
-func mutliPack1(v, w ,s []int, m int) int {
+func mutliPack1(v, w, s []int, m int) int {
 	//二进制优化 转换为01背包问题
 	n := len(v)
-	//拆包 
-	goods:=make([][]int,0)
-	for i:=0;i<n;i++{
-		for k:=1;k<=s[i];k*=2{
-			s[k]-=k
-			goods=append(goods,[]int{v[i]*k,w[i]*k})
-	
+	//拆包
+	goods := make([][]int, 0)
+	for i := 0; i < n; i++ {
+		for k := 1; k <= s[i]; k *= 2 {
+			s[k] -= k
+			goods = append(goods, []int{v[i] * k, w[i] * k})
+
 		}
-		if s[i]>0{
-			goods=append(goods,[]int{v[i]*s[i],w[i]*s[i]})
+		if s[i] > 0 {
+			goods = append(goods, []int{v[i] * s[i], w[i] * s[i]})
 		}
 	}
-	n=len(goods)
+	n = len(goods)
 	dp := make([]int, m+1)
 	for i := 1; i <= n; i++ {
-		for j :=m; j >=goods[i-1][0]; j-- {
+		for j := m; j >= goods[i-1][0]; j-- {
 			dp[j] = max(dp[j], dp[j-goods[i-1][0]]+goods[i-1][1])
 		}
 	}
@@ -105,8 +104,7 @@ func main() {
 
 	v := []int{1, 2, 3, 4}
 	w := []int{2, 4, 4, 5}
-	s:=[]int{3,1,3,2}
+	s := []int{3, 1, 3, 2}
 	//fmt.Println(zeroOnePack(v, w, 5))
-	fmt.Println(mutliPack1(v, w,s, 5))
+	fmt.Println(mutliPack1(v, w, s, 5))
 }
-

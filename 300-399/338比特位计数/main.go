@@ -5,7 +5,7 @@ import "fmt"
 func countBits(num int) []int {
 	if num == 0 {
 		return []int{0}
-		
+
 	}
 	res := make([]int, num+1)
 	res[1] = 1
@@ -13,7 +13,7 @@ func countBits(num int) []int {
 	index := 2
 	for index <= num {
 		a = a << 1
-		for i := 0; i < a&&index <= num; i++ {
+		for i := 0; i < a && index <= num; i++ {
 			res[index] = res[i] + 1
 			index++
 		}

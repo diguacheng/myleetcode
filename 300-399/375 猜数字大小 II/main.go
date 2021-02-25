@@ -8,16 +8,16 @@ func getMoneyAmount(n int) int {
 		if start == end {
 			return 0
 		}
-		mid := (start+end+1)/2
+		mid := (start + end + 1) / 2
 		fmt.Println(mid)
-		a,b:=help(start,mid-1),help(mid+1,end)
-		return mid+max(a,b)
+		a, b := help(start, mid-1), help(mid+1, end)
+		return mid + max(a, b)
 	}
 	return help(1, n)
 
 }
 
-func max(a,b int) int {
+func max(a, b int) int {
 	if a > b {
 		return a
 	}

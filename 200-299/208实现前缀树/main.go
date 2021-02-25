@@ -1,56 +1,50 @@
-package main 
-
+package main
 
 type Trie struct {
-	IsEnd bool 
-	Next [26]*Trie
+	IsEnd bool
+	Next  [26]*Trie
 }
-
 
 /** Initialize your data structure here. */
 func Constructor() Trie {
 	return Trie{}
 }
 
-
 /** Inserts a word into the trie. */
-func (this *Trie) Insert(word string)  {
-	for _,v:=range word{
-		if this.Next[v-'a']==nil{
-			this.Next[v-'a']=&Trie{}
+func (this *Trie) Insert(word string) {
+	for _, v := range word {
+		if this.Next[v-'a'] == nil {
+			this.Next[v-'a'] = &Trie{}
 		}
-		this=this.Next[v-'a']
+		this = this.Next[v-'a']
 	}
-	this.IsEnd=true
+	this.IsEnd = true
 }
-
 
 /** Returns if the word is in the trie. */
 func (this *Trie) Search(word string) bool {
-	for _,v:=range word{
-		if this.Next[v-'a']==nil{
+	for _, v := range word {
+		if this.Next[v-'a'] == nil {
 			return false
-		}else{
-			this=this.Next[v-'a']
+		} else {
+			this = this.Next[v-'a']
 		}
 
 	}
-	return this.IsEnd==true
+	return this.IsEnd == true
 }
-
 
 /** Returns if there is any word in the trie that starts with the given prefix. */
 func (this *Trie) StartsWith(prefix string) bool {
-	for _,v:=range prefix{
-		if this.Next[v-'a']==nil{
+	for _, v := range prefix {
+		if this.Next[v-'a'] == nil {
 			return false
-		}else{
-			this=this.Next[v-'a']
+		} else {
+			this = this.Next[v-'a']
 		}
 	}
 	return true
 }
-
 
 /**
  * Your Trie object will be instantiated and called as such:

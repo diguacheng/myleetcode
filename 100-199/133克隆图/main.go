@@ -44,7 +44,6 @@ func cloneGraph(node *Node) *Node {
 	return res
 }
 
-
 func cloneGraph1(node *Node) *Node {
 	if node == nil {
 		return nil
@@ -72,8 +71,7 @@ func cloneGraph1(node *Node) *Node {
 				visited[node] = true
 				DFS(n)
 			}
-			
-			
+
 			return newNode
 		}
 		return nil

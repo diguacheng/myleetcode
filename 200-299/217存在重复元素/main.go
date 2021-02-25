@@ -4,9 +4,9 @@ import "sort"
 
 func containsDuplicate(nums []int) bool {
 	sort.Ints(nums)
-	n:=len(nums)
+	n := len(nums)
 	for i := 1; i < n; i++ {
-		if nums[i]==nums[i-1] {
+		if nums[i] == nums[i-1] {
 			return true
 		}
 	}
@@ -14,10 +14,10 @@ func containsDuplicate(nums []int) bool {
 }
 
 func containsDuplicate1(nums []int) bool {
-	t:=map[int]int{}
-	for _,v:=range nums{
+	t := map[int]int{}
+	for _, v := range nums {
 		t[v]++
-		if t[v]>1{
+		if t[v] > 1 {
 			return false
 		}
 	}

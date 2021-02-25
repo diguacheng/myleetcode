@@ -1,10 +1,9 @@
 package main
 
 import (
-	"fmt"	
+	"fmt"
 	"sort"
 )
-
 
 func permuteUnique(nums []int) [][]int {
 
@@ -39,6 +38,6 @@ func help(nums, temp []int, res *[][]int) {
 }
 func main() {
 	nums := []int{1, 2, 3, 3}
-	fmt.Println( permuteUnique(nums))
+	fmt.Println(permuteUnique(nums))
 
 }

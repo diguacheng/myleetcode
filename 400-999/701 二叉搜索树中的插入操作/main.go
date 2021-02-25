@@ -5,6 +5,7 @@ type TreeNode struct {
 	Left  *TreeNode
 	Right *TreeNode
 }
+
 // 递归
 func insertIntoBST(root *TreeNode, val int) *TreeNode {
 	if root == nil {
@@ -34,6 +35,7 @@ func insertIntoBST(root *TreeNode, val int) *TreeNode {
 	return root
 
 }
+
 //迭代
 func insertIntoBST1(root *TreeNode, val int) *TreeNode {
 	if root == nil {

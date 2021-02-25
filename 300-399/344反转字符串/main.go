@@ -15,9 +15,9 @@ func reverseString(s []byte) {
 
 func reverseString1(s []byte) {
 	n := len(s)
-	start,end:=0,n-1
+	start, end := 0, n-1
 	var temp byte
-	for start<end{
+	for start < end {
 		temp = s[start]
 		s[start] = s[end]
 		s[end] = temp
@@ -30,6 +30,5 @@ func main() {
 	s := []byte{'a', 'b', 'c', 'd'}
 	reverseString(s)
 	fmt.Println(string(s))
-
 
 }

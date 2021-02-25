@@ -44,7 +44,7 @@ func (this *Codec) deserialize(data string) *TreeNode {
 	dataSlice = dataSlice[:len(dataSlice)-1]
 	//i := 0
 	//root, i := rdeserialize(dataSlice, i)
-	root:= rdeserialize1(&dataSlice)
+	root := rdeserialize1(&dataSlice)
 	return root
 }
 
@@ -66,17 +66,17 @@ func rdeserialize(l []string, i int) (*TreeNode, int) {
 
 }
 
-func rdeserialize1(l *[]string) (*TreeNode) {
+func rdeserialize1(l *[]string) *TreeNode {
 	if (*l)[0] == "nil" {
-		(*l)=(*l)[1:]
+		(*l) = (*l)[1:]
 		return nil
 	}
 	num, _ := strconv.Atoi((*l)[0])
 	root := new(TreeNode)
 	root.Val = num
-	(*l)=(*l)[1:]
-	root.Left= rdeserialize1(l)
-	root.Right= rdeserialize1(l)
+	(*l) = (*l)[1:]
+	root.Left = rdeserialize1(l)
+	root.Right = rdeserialize1(l)
 	return root
 
 }

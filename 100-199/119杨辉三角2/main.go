@@ -1,8 +1,7 @@
-package main 
-
+package main
 
 func getRow(rowIndex int) []int {
-	numRows:=rowIndex
+	numRows := rowIndex
 	if numRows == 0 {
 		return []int{}
 	}

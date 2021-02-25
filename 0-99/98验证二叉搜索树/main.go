@@ -62,24 +62,23 @@ func help1(root *TreeNode, lower, higher int) bool {
 func isValidBST1(root *TreeNode) bool {
 	stack := make([]*TreeNode, 0)
 	curr := root
-	lastVal :=math.MinInt64
-	for len(stack) != 0||curr != nil  {
+	lastVal := math.MinInt64
+	for len(stack) != 0 || curr != nil {
 		for curr != nil {
 			stack = append(stack, curr)
 			curr = curr.Left
 		}
 		curr = stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
-		if curr.Val<=lastVal {
+		if curr.Val <= lastVal {
 			return false
 		}
-		lastVal=curr.Val
+		lastVal = curr.Val
 		curr = curr.Right
 	}
 	return true
 
 }
-
 
 func main() {
 

@@ -19,25 +19,25 @@ func detectCycle(head *ListNode) *ListNode {
 }
 
 func detectCycle1(head *ListNode) *ListNode {
-	if head==nil||head.Next==nil{
+	if head == nil || head.Next == nil {
 		return nil
 	}
-	slow,fast :=head,head
-	ans:=head
-	for fast!=nil&&fast.Next!=nil{
-		slow=slow.Next
-		fast=fast.Next.Next
-		if slow==fast{
-			for ans!=slow{
-				ans=ans.Next
-				slow=slow.Next
+	slow, fast := head, head
+	ans := head
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
+			for ans != slow {
+				ans = ans.Next
+				slow = slow.Next
 			}
 			return ans
-			
+
 		}
 	}
 	return nil
-	
+
 }
 func main() {
 

@@ -7,7 +7,7 @@ type TreeNode struct {
 }
 
 func isSubtree(s *TreeNode, t *TreeNode) bool {
-	if s==nil{
+	if s == nil {
 		return false
 	}
 	if isSame(s, t) {

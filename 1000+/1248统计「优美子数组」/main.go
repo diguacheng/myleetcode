@@ -35,7 +35,7 @@ func numberOfSubarrays1(nums []int, k int) int {
 	next = append(next, -1)
 	res := 0
 	for i, v := range nums {
-		if v&1== 1 {
+		if v&1 == 1 {
 			next = append(next, i)
 		}
 	}
@@ -46,7 +46,7 @@ func numberOfSubarrays1(nums []int, k int) int {
 	}
 	i := k
 	for i+1 < len(next) {
-		res += (next[i-k+1] - next[i-k]) * ( next[i+1] - next[i])
+		res += (next[i-k+1] - next[i-k]) * (next[i+1] - next[i])
 		i++
 
 	}

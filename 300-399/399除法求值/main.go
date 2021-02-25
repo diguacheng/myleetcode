@@ -80,7 +80,7 @@ func calcEquation1(equations [][]string, values []float64, queries [][]string) [
 func main() {
 	equations := [][]string{{"a", "b"}, {"b", "c"}}
 	values := []float64{2.0, 3.0}
-	queries := [][]string{{"a", "c"}, {"b", "a"}, {"a", "e"}, {"a", "a"},{"x","x"}}
+	queries := [][]string{{"a", "c"}, {"b", "a"}, {"a", "e"}, {"a", "a"}, {"x", "x"}}
 
 	fmt.Println(calcEquation1(equations, values, queries))
 

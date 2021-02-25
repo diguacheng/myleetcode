@@ -5,8 +5,8 @@ import (
 )
 
 func findOrder(numCourses int, prerequisites [][]int) []int {
-	// 本质是广度优先搜索 
-	G := make([][]int, numCourses)// G[i]表示从i进入的点
+	// 本质是广度优先搜索
+	G := make([][]int, numCourses) // G[i]表示从i进入的点
 	for _, pre := range prerequisites {
 		G[pre[0]] = append(G[pre[0]], pre[1])
 
@@ -123,46 +123,43 @@ func findOrder2(numCourses int, prerequisites [][]int) []int {
 	}
 	if flag {
 		return []int{}
-		
+
 	}
 	return res
 
 }
 
-
 func findOrder3(numCourses int, prerequisites [][]int) []int {
 	// 广度优先搜索
 	res := []int{}
 	edges := make([][]int, numCourses)
-	indeg:= make([]int, numCourses)
-	
+	indeg := make([]int, numCourses)
+
 	for _, pre := range prerequisites {
 		edges[pre[1]] = append(edges[pre[1]], pre[0])
 		indeg[pre[0]]++
 	}
-	q:=[]int{}
-	for i:=0;i<numCourses;i++ {
-		if indeg[i]==0{
-			q=append(q,i)
+	q := []int{}
+	for i := 0; i < numCourses; i++ {
+		if indeg[i] == 0 {
+			q = append(q, i)
 		}
 	}
-	for len(q)>0{
-		u:=q[0]
-		q=q[1:]
-		res=append(res,u)
-		for _,v:=range edges[u]{
+	for len(q) > 0 {
+		u := q[0]
+		q = q[1:]
+		res = append(res, u)
+		for _, v := range edges[u] {
 			indeg[v]--
-			if indeg[v]==0{
-				q=append(q,v)
+			if indeg[v] == 0 {
+				q = append(q, v)
 			}
 		}
 	}
-	if len(res)!=numCourses{
+	if len(res) != numCourses {
 		return []int{}
 	}
 	return res
-
-	
 
 }
 func main() {

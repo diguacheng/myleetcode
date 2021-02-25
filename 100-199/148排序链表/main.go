@@ -30,7 +30,7 @@ func sortList(head *ListNode) *ListNode {
 			p.Next = right
 			right = right.Next
 		}
-		p=p.Next
+		p = p.Next
 	}
 	if left != nil {
 		p.Next = left
@@ -42,60 +42,59 @@ func sortList(head *ListNode) *ListNode {
 
 }
 
-
 func sortList1(head *ListNode) *ListNode {
-	// 归并 排序 自底向上 
-	h:=head
-	length:=0
-	intv:=1
-	for h!=nil{
-		h=h.Next
+	// 归并 排序 自底向上
+	h := head
+	length := 0
+	intv := 1
+	for h != nil {
+		h = h.Next
 		length++
 	}
-	res:=&ListNode{}
-	res.Next=head
-	for intv<length {
-		pre:=res
-		h:=res.Next
-		for h!=nil{
-			h1:=h
-			i:=intv
-			for i!=0&&h!=nil{
-				h=h.Next
+	res := &ListNode{}
+	res.Next = head
+	for intv < length {
+		pre := res
+		h := res.Next
+		for h != nil {
+			h1 := h
+			i := intv
+			for i != 0 && h != nil {
+				h = h.Next
 				i--
 			}
-			if i>0{
+			if i > 0 {
 				break
 			}
-			h2:=h
-			i=intv
-			for i!=0&&h!=nil{
-				h=h.Next
+			h2 := h
+			i = intv
+			for i != 0 && h != nil {
+				h = h.Next
 				i--
 			}
-			c1,c2:=intv, intv-i
-			for c1!=0&&c2!=0{
-				if h1.Val<h2.Val{
-					pre.Next=h1
-					h1=h1.Next
+			c1, c2 := intv, intv-i
+			for c1 != 0 && c2 != 0 {
+				if h1.Val < h2.Val {
+					pre.Next = h1
+					h1 = h1.Next
 					c1--
-				}else{
-					pre.Next=h2
-					h2=h2.Next
+				} else {
+					pre.Next = h2
+					h2 = h2.Next
 					c2--
 				}
-				pre=pre.Next
+				pre = pre.Next
 			}
-			if c1>0{
-				pre.Next=h1
-				pre=pre.Next
-			}else{
-				pre.Next=h2
-				pre=pre.Next
+			if c1 > 0 {
+				pre.Next = h1
+				pre = pre.Next
+			} else {
+				pre.Next = h2
+				pre = pre.Next
 			}
-			pre.Next=h
+			pre.Next = h
 		}
-		intv*=2
+		intv *= 2
 	}
 	return res.Next
 }
@@ -103,13 +102,13 @@ func sortList1(head *ListNode) *ListNode {
 func main() {
 	in := &ListNode{Val: 0}
 	p := in
-	ll := []int{4,2, 1,3}
+	ll := []int{4, 2, 1, 3}
 	for _, i := range ll {
 		node := &ListNode{Val: i}
 		p.Next = node
 		p = p.Next
 	}
 	x := sortList1(in.Next)
-	fmt.Printf("%#v",x)
+	fmt.Printf("%#v", x)
 
 }

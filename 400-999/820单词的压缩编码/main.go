@@ -106,7 +106,6 @@ func minimumLengthEncoding2(words []string) int {
 
 }
 
-
 func reservedWord(word string) string {
 	bytes := []byte(word)
 	l, r := 0, len(bytes)-1
@@ -118,7 +117,6 @@ func reservedWord(word string) string {
 	return string(bytes)
 
 }
-
 
 func main() {
 	words := []string{"time", "atime", "btime"}

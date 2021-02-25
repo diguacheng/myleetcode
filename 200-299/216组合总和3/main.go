@@ -31,6 +31,6 @@ func backTrack(candidates []int, k, n int, temp []int, res *[][]int) {
 }
 
 func main() {
-	fmt.Println(combinationSum3(3,9))
+	fmt.Println(combinationSum3(3, 9))
 
 }

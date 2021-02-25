@@ -1,15 +1,13 @@
 package main
 
-
-
 func solve(board [][]byte) {
 	n := len(board)
 	if n <= 2 {
 		return
 	}
-	m:=len(board[0])
-	if m<=2{
-		return 
+	m := len(board[0])
+	if m <= 2 {
+		return
 	}
 	isVisited := make([][]bool, n)
 	for i := 0; i < n; i++ {
@@ -52,12 +50,12 @@ func solve(board [][]byte) {
 			help(n-1, i)
 		}
 	}
-	for i:=1;i<n-1;i++{
+	for i := 1; i < n-1; i++ {
 		if board[i][0] == 'O' {
-			help(i,0)
+			help(i, 0)
 		}
 		if board[i][m-1] == 'O' {
-			help(i,m-1)
+			help(i, m-1)
 		}
 	}
 	for i := 0; i < n; i++ {

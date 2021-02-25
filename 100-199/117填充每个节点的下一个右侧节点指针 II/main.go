@@ -37,36 +37,33 @@ func connect(root *Node) *Node {
 	return root
 }
 
-
-
 func connect1(root *Node) *Node {
 	if root == nil {
 		return nil
 	}
-	curr:=root
-	mostLeft:=&Node{}
-	for curr != nil{
-		tail:=mostLeft
-		for curr!=nil{
-			if curr.Left!=nil{
-				tail.Next=curr.Left
-				tail=tail.Next
+	curr := root
+	mostLeft := &Node{}
+	for curr != nil {
+		tail := mostLeft
+		for curr != nil {
+			if curr.Left != nil {
+				tail.Next = curr.Left
+				tail = tail.Next
 			}
-			if curr.Right!=nil{
-				tail.Next=curr.Right
-				tail=tail.Next
+			if curr.Right != nil {
+				tail.Next = curr.Right
+				tail = tail.Next
 			}
-			curr=curr.Next
+			curr = curr.Next
 		}
-		curr=mostLeft.Next
-		if tail==mostLeft{
+		curr = mostLeft.Next
+		if tail == mostLeft {
 			break
 		}
-		
+
 	}
 	return root
 }
-
 
 func main() {
 

@@ -1,7 +1,5 @@
 package main
 
-
-
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -27,7 +25,7 @@ func deleteDuplicates(head *ListNode) *ListNode {
 		}
 		p = p.Next
 	}
-	q.Next=nil
+	q.Next = nil
 	return res.Next
 }
 
@@ -36,28 +34,27 @@ func deleteDuplicates1(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	res:=&ListNode{}
-	res.Next=head
-	pre,cur:=res,head
-	for cur!=nil{
-		for cur.Next != nil && cur.Val==cur.Next.Val{
-			cur=cur.Next// cur节点与下一个值相同，就一直往后移
+	res := &ListNode{}
+	res.Next = head
+	pre, cur := res, head
+	for cur != nil {
+		for cur.Next != nil && cur.Val == cur.Next.Val {
+			cur = cur.Next // cur节点与下一个值相同，就一直往后移
 		}
-		if pre.Next==cur{
+		if pre.Next == cur {
 			// cur 值没变，说明 cur 节点是非重复节点
-			pre=pre.Next
-		}else{
-			pre.Next=cur.Next
+			pre = pre.Next
+		} else {
+			pre.Next = cur.Next
 			// 否则， cur节点指向的是重复节点的最后一个
 			// 将pre指向cur的下一个节点，
 		}
-		cur=pre.Next
+		cur = pre.Next
 	}
 	return res.Next
 
 }
 
 func main() {
-
 
 }

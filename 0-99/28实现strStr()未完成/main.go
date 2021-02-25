@@ -38,29 +38,29 @@ func strStr(haystack string, needle string) int {
 
 func strStr(haystack string, needle string) int {
 	// 双指针
-	lenh:=len(haystack)
+	lenh := len(haystack)
 
-	lenn:=len(needle)
-	if lenh<lenn{
+	lenn := len(needle)
+	if lenh < lenn {
 		return -1
 	}
-	if lenn==0{
+	if lenn == 0 {
 		return 0
 	}
-	start,end:=0,0
-	k:=0
-	for start<lenh {
-		if haystack[start]==needle[k]{
-			end=start+1
+	start, end := 0, 0
+	k := 0
+	for start < lenh {
+		if haystack[start] == needle[k] {
+			end = start + 1
 			k++
-			for end<lenh&&k<lenn && haystack[end]==needle[k]{
+			for end < lenh && k < lenn && haystack[end] == needle[k] {
 				k++
 				end++
 			}
-			if k>=lenn{
+			if k >= lenn {
 				return start
 			}
-			start=end
+			start = end
 		}
 	}
 

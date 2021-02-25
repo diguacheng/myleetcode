@@ -22,10 +22,8 @@ func search(nums []int, target int) int {
 }
 
 func main() {
-	x:=[]int{1,2,3,4,5,6,7,8,9}
-	fmt.Println(search(x,1))
-	fmt.Println(search(x,7))
+	x := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	fmt.Println(search(x, 1))
+	fmt.Println(search(x, 7))
 
 }
-
-

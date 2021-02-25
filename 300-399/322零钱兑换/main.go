@@ -118,47 +118,42 @@ func dp(coins, res []int, amount int) int {
 	return min
 }
 
-
 func coinChange4(coins []int, amount int) int {
 	// @data 20200922
 	if amount == 0 {
 		return 0
 	}
-	dp:= make([]int, amount+1)
-	n:=len(coins)
+	dp := make([]int, amount+1)
+	n := len(coins)
 
-	
-	for i:=1 ;i<=amount;i++{
-		dp[i]=amount+1
-		for j:=0;j<n;j++{
-			if coins[j]>i{
+	for i := 1; i <= amount; i++ {
+		dp[i] = amount + 1
+		for j := 0; j < n; j++ {
+			if coins[j] > i {
 				continue
 			}
-			if dp[i-coins[j]]>=0{
-				dp[i]=min(dp[i],1+dp[i-coins[j]])
+			if dp[i-coins[j]] >= 0 {
+				dp[i] = min(dp[i], 1+dp[i-coins[j]])
 			}
 		}
 
-
 	}
-	if dp[amount]>amount{
-		return-1
+	if dp[amount] > amount {
+		return -1
 	}
 	return dp[amount]
-	
+
 }
 
-
-
-func min(a,b int) int{
-	if a<b {
+func min(a, b int) int {
+	if a < b {
 		return a
 	}
 	return b
 }
 func main() {
-	coins := []int{474,83,404,3}
+	coins := []int{474, 83, 404, 3}
 	amount := 264
-	
+
 	fmt.Println(coinChange4(coins, amount))
 }

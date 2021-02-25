@@ -9,10 +9,10 @@ func characterReplacement(s string, k int) int {
 	n := len(s)
 
 	check := func() bool {
-		
+
 		maxValue := 0
 		for _, v := range window {
-		
+
 			if v > maxValue {
 				maxValue = v
 			}
@@ -42,10 +42,10 @@ func characterReplacement2(s string, k int) int {
 	n := len(s)
 
 	check := func() bool {
-		
+
 		maxValue := 0
 		for _, v := range window {
-		
+
 			if v > maxValue {
 				maxValue = v
 			}
@@ -102,7 +102,6 @@ func characterReplacement1(s string, k int) int {
 	return maxL
 }
 
-
 func characterReplacement3(s string, k int) int {
 	window := [26]int{}
 	left, right := 0, 0
@@ -113,7 +112,7 @@ func characterReplacement3(s string, k int) int {
 
 		maxValue := 0
 		for _, v := range window {
-	
+
 			if v > maxValue {
 				maxValue = v
 			}
@@ -137,8 +136,8 @@ func characterReplacement3(s string, k int) int {
 	return maxL
 }
 
-// 上面的效率太低，把哈希表map换为数组后，提升了点，但是效率也不高 
-// 下面这个双百 
+// 上面的效率太低，把哈希表map换为数组后，提升了点，但是效率也不高
+// 下面这个双百
 func characterReplacement100(s string, k int) int {
 	if s == "" || len(s) == 0 {
 		return 0

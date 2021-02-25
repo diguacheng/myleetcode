@@ -71,20 +71,19 @@ func kthLargest2(root *TreeNode, k int) int {
 
 }
 
-
 func kthLargest3(root *TreeNode, k int) int {
 	// 右中左
 	res := 0
 	var help func(root *TreeNode)
 	help = func(root *TreeNode) {
-		if k==0&&root == nil {
+		if k == 0 && root == nil {
 			return
 		}
 		help(root.Right)
 		k--
 		if k == 0 {
 			res = root.Val
-			return 
+			return
 		}
 		help(root.Left)
 	}

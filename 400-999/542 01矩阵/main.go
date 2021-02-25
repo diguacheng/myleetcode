@@ -66,20 +66,18 @@ func updateMatrix1(matrix [][]int) [][]int {
 			}
 		}
 	}
-	
 
-	for i := n-1; i >=0; i-- {
-		for j := m-1; j >=0; j-- {
-			if i+1<n {
+	for i := n - 1; i >= 0; i-- {
+		for j := m - 1; j >= 0; j-- {
+			if i+1 < n {
 				res[i][j] = min(res[i][j], res[i+1][j]+1)
 			}
-			if j+1<m {
+			if j+1 < m {
 				res[i][j] = min(res[i][j], res[i][j+1]+1)
 			}
 		}
 	}
 	return res
-
 
 }
 

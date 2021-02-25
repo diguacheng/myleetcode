@@ -40,46 +40,41 @@ func counts(in []int, i int) int {
 
 }
 
-
 func integerBreak2(n int) int {
-	if n<4{
-		return n-1
+	if n < 4 {
+		return n - 1
 	}
-	t:=make([]int,n+1)
-	t[0]=0
-	t[1]=0
-	var dp func(int)int
-	dp=func(x int)int{
-		if x==0||x==1{
+	t := make([]int, n+1)
+	t[0] = 0
+	t[1] = 0
+	var dp func(int) int
+	dp = func(x int) int {
+		if x == 0 || x == 1 {
 			return 0
 		}
-		if t[x]!=0{
-			if t[x]>x{
+		if t[x] != 0 {
+			if t[x] > x {
 				return t[x]
 			}
 			return x
 		}
-		res:=0
-		for i:=1;i<x;i++{
-			temp:=dp(x-i)*dp(i)
-			if x>temp{
-				temp=x
+		res := 0
+		for i := 1; i < x; i++ {
+			temp := dp(x-i) * dp(i)
+			if x > temp {
+				temp = x
 			}
-			if res<temp{
-				res=temp
+			if res < temp {
+				res = temp
 			}
 		}
-		t[x]=res
+		t[x] = res
 		return res
 	}
 	return dp(n)
 }
 
-
-
 func main() {
 	fmt.Println(integerBreak2(20))
 
 }
-
-

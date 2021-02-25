@@ -26,8 +26,8 @@ func massage(nums []int) int {
 	// 递归算法
 	// 用列表存储结果
 	helper := make([]int, len(nums))
-	for i:=0;i<len(nums);i++ {
-		helper[i]=-1
+	for i := 0; i < len(nums); i++ {
+		helper[i] = -1
 	}
 	return dpp(nums, helper, 0)
 
@@ -53,24 +53,24 @@ func dpp(nums, helper []int, i int) int {
 
 }
 
-func massage3(nums []int)int{
-	l:=len(nums)
-	if l==0{
+func massage3(nums []int) int {
+	l := len(nums)
+	if l == 0 {
 		return 0
 	}
-	dp0:=0
-	dp1:=nums[0]
-	for i:=1;i<l;i++{
-		tdp0:=max(dp0,dp1)
-		tdp1:=dp0+nums[i]
-		dp0=tdp0// 前i个预约，第i个预约不接的最长用时
-		dp1=tdp1// 前i个预约，第i个预约接的最长用时
+	dp0 := 0
+	dp1 := nums[0]
+	for i := 1; i < l; i++ {
+		tdp0 := max(dp0, dp1)
+		tdp1 := dp0 + nums[i]
+		dp0 = tdp0 // 前i个预约，第i个预约不接的最长用时
+		dp1 = tdp1 // 前i个预约，第i个预约接的最长用时
 	}
-	return max(dp0,dp1)
+	return max(dp0, dp1)
 }
 
-func max(a,b int) int{
-	if a>b{
+func max(a, b int) int {
+	if a > b {
 		return a
 	}
 	return b

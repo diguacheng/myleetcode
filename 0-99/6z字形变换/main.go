@@ -22,9 +22,9 @@ func convert(s string, numRows int) string {
 			k++
 		}
 	}
-	ans :=[]byte{}
+	ans := []byte{}
 	for i := 0; i < numRows; i++ {
-		ans =append(ans,res[i]...)
+		ans = append(ans, res[i]...)
 	}
 	return string(ans)
 }
@@ -87,36 +87,35 @@ func convert2(s string, numRows int) string {
 func convert3(s string, numRows int) string {
 	// 按行访问
 	n := len(s)
-	if numRows == 1|| n<=numRows{
+	if numRows == 1 || n <= numRows {
 		return s
 	}
-	res :=[]byte{}
+	res := []byte{}
 	grouplen := 2*numRows - 2
-	var left,right int
-	for i:=0;i<numRows;i++{
-		left=i
-		right=grouplen-left
+	var left, right int
+	for i := 0; i < numRows; i++ {
+		left = i
+		right = grouplen - left
 		for {
-			if left>=n{
+			if left >= n {
 				break
 			}
-			res=append(res,s[left])
-			left+=grouplen
-			if i!=0&&i!=numRows-1{
-				if right>=n{
+			res = append(res, s[left])
+			left += grouplen
+			if i != 0 && i != numRows-1 {
+				if right >= n {
 					break
 				}
-				res=append(res,s[right])
+				res = append(res, s[right])
 
-				right+=grouplen
+				right += grouplen
 			}
 		}
-		
+
 	}
-	
+
 	return string(res)
 }
-
 
 func main() {
 	fmt.Println(convert3("PAYPALISHIRING", 3), "LCIRETOESIIGEDHN")

@@ -108,8 +108,8 @@ func minWindow2(s string, t string) string {
 		if need[s[right]] == 0 {
 			right++
 			continue
-        }
-        rightchar:=s[right]
+		}
+		rightchar := s[right]
 		if window[rightchar] < need[rightchar] {
 			distance++
 		}
@@ -125,8 +125,8 @@ func minWindow2(s string, t string) string {
 			if need[s[left]] == 0 {
 				left++
 				continue
-            }
-            leftchar:=s[left]
+			}
+			leftchar := s[left]
 			if window[leftchar] == need[leftchar] {
 				distance--
 			}

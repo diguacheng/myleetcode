@@ -6,7 +6,7 @@ type ListNode struct {
 }
 
 func getKthFromEnd(head *ListNode, k int) *ListNode {
-	if head==nil||k==0{
+	if head == nil || k == 0 {
 		return head
 	}
 	var res, prev *ListNode

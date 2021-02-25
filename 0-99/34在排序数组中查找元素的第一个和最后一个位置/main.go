@@ -1,33 +1,31 @@
 package main
 
 import (
-	"fmt"	
-
+	"fmt"
 )
-
 
 func searchRange(nums []int, target int) []int {
 	n := len(nums)
 	if n == 0 {
-        return []int{-1,-1}
+		return []int{-1, -1}
 	}
-    res := []int{-1,-1}
+	res := []int{-1, -1}
 	start, end := 0, n-1
-	var mid ,i int
+	var mid, i int
 	for start <= end {
 		mid = (start + end) / 2
 		if nums[mid] == target {
-			res=[]int{mid,mid}
-			i=mid-1
-			for i>=0&&nums[i]== target {
+			res = []int{mid, mid}
+			i = mid - 1
+			for i >= 0 && nums[i] == target {
 				i--
 			}
-			res[0]=i+1
-			i:=mid+1
-			for  i<n && nums[i]== target{
+			res[0] = i + 1
+			i := mid + 1
+			for i < n && nums[i] == target {
 				i++
 			}
-			res[1]=i-1
+			res[1] = i - 1
 			break
 		}
 		if nums[mid] > target {
@@ -42,25 +40,25 @@ func searchRange(nums []int, target int) []int {
 func searchRange1(nums []int, target int) []int {
 	n := len(nums)
 	if n == 0 {
-        return []int{-1,-1}
+		return []int{-1, -1}
 	}
-    res := []int{-1,-1}
+	res := []int{-1, -1}
 	start, end := 0, n-1
-	var mid int 
+	var mid int
 	for start < end {
 		mid = (start + end) / 2
-		if nums[mid]>=target{
-			end= mid 
-		}else{
-			start=mid+1
+		if nums[mid] >= target {
+			end = mid
+		} else {
+			start = mid + 1
 		}
 	}
-	if nums[start]==target{
-		i:=start
-		for i+1<n&&nums[i+1]==target{
+	if nums[start] == target {
+		i := start
+		for i+1 < n && nums[i+1] == target {
 			i++
 		}
-		res=[]int{start,i}
+		res = []int{start, i}
 	}
 	return res
 }

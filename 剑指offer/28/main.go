@@ -1,6 +1,5 @@
 package main
 
-
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -50,24 +49,24 @@ func Rorders(root *TreeNode, l *[]int) {
 	}
 }
 
-func isSymmetric1(root *TreeNode) bool{
+func isSymmetric1(root *TreeNode) bool {
 	if root == nil {
 		return true
 	}
-	return isSame(root.Left,root.Right)
+	return isSame(root.Left, root.Right)
 }
 
-func isSame(l ,r *TreeNode) bool{
-	if l== nil&&r==nil{
+func isSame(l, r *TreeNode) bool {
+	if l == nil && r == nil {
 		return true
 	}
-	if l==nil||r==nil{
+	if l == nil || r == nil {
 		return false
 	}
-	if l.Val!=r.Val{
+	if l.Val != r.Val {
 		return false
 	}
-	return isSame(l.Left,r.Right)&&isSame(l.Right,r.Left)
+	return isSame(l.Left, r.Right) && isSame(l.Right, r.Left)
 }
 
 func main() {

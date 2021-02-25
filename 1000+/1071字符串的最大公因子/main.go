@@ -61,14 +61,13 @@ func gcd(a, b int) int {
 
 func gcdOfStrings2(str1 string, str2 string) string {
 	// 数学
-	if str1+str2!=str2+str1{
+	if str1+str2 != str2+str1 {
 		return ""
 	}
 	l1 := len(str1)
 	l2 := len(str2)
 	res := str1[:gcd(l1, l2)]
 	return res
-
 
 }
 

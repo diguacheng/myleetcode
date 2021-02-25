@@ -8,13 +8,13 @@ type TreeNode struct {
 
 func maxDepth(root *TreeNode) int {
 	if root != nil {
-		return max(maxDepth(root.Left), maxDepth(root.Right))+1
+		return max(maxDepth(root.Left), maxDepth(root.Right)) + 1
 	}
 	return 0
 
 }
 
-func max(a,b int) int {
+func max(a, b int) int {
 	if a > b {
 		return a
 	}

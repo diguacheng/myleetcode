@@ -14,22 +14,22 @@ func search(nums []int, target int) int {
 		return -1
 	}
 	start, end := 0, n-1
-	
-	for start <=end {
+
+	for start <= end {
 		mid := (start + end) / 2
 		if nums[mid] == target {
 			return mid
 		}
 		if nums[0] <= nums[mid] {
 			if nums[mid] > target && nums[0] <= target {
-				end = mid-1
+				end = mid - 1
 
 			} else {
 				start = mid + 1
 			}
 		} else {
 			if nums[mid] < target && nums[n-1] >= target {
-				start = mid+1
+				start = mid + 1
 			} else {
 				end = mid - 1
 			}
@@ -41,11 +41,9 @@ func search(nums []int, target int) int {
 
 }
 
-
-
 func main() {
 	nums := []int{4, 5, 6, 7, 0, 1, 2}
-	target :=0
+	target := 0
 	fmt.Println(search(nums, target))
 
 }

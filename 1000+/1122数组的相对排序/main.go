@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"sort")
-
+	"sort"
+)
 
 func relativeSortArray(arr1 []int, arr2 []int) []int {
 	n := len(arr2)
@@ -11,17 +11,17 @@ func relativeSortArray(arr1 []int, arr2 []int) []int {
 	for i := 0; i < n; i++ {
 		table[arr2[i]] = i
 	}
-	sort.Slice(arr1,func(i,j int)bool{
-		x,y:=arr1[i],arr1[j]
-		px,hasx:=table[x]
-		py,hasy:=table[y]
-		if hasx&&hasy{
-			return px<py
+	sort.Slice(arr1, func(i, j int) bool {
+		x, y := arr1[i], arr1[j]
+		px, hasx := table[x]
+		py, hasy := table[y]
+		if hasx && hasy {
+			return px < py
 		}
-		if !hasx&&!hasy{
-			return x<y
+		if !hasx && !hasy {
+			return x < y
 		}
-		if !hasx{
+		if !hasx {
 			return false
 		}
 		return true
@@ -31,8 +31,8 @@ func relativeSortArray(arr1 []int, arr2 []int) []int {
 }
 
 func main() {
-	arr1:=[]int{2,3,1,3,2,4,6,0,9,2,19}
-	arr2:=[]int{2,1,4,3,9,6}
-	fmt.Println(relativeSortArray(arr1,arr2))
+	arr1 := []int{2, 3, 1, 3, 2, 4, 6, 0, 9, 2, 19}
+	arr2 := []int{2, 1, 4, 3, 9, 6}
+	fmt.Println(relativeSortArray(arr1, arr2))
 
 }

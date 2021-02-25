@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func hammingDistance(x int, y int) int {
-	c:=0
+	c := 0
 	for x > 0 || y > 0 {
 		if x&1 != y&1 {
 			c++
@@ -16,7 +16,6 @@ func hammingDistance(x int, y int) int {
 }
 
 func main() {
-	fmt.Println(hammingDistance(1,4))
-
+	fmt.Println(hammingDistance(1, 4))
 
 }

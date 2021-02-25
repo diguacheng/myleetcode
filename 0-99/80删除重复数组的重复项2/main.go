@@ -23,7 +23,7 @@ func removeDuplicates(nums []int) int {
 		}
 	}
 	count = 0
-	for i< n && count < 2 {
+	for i < n && count < 2 {
 		nums[k] = nums[i]
 		count++
 		k++
@@ -33,7 +33,7 @@ func removeDuplicates(nums []int) int {
 }
 
 func main() {
-	nums:= []int{1,1,1,2,2,3}
+	nums := []int{1, 1, 1, 2, 2, 3}
 	fmt.Println(removeDuplicates(nums))
 
 }

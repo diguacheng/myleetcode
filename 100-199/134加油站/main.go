@@ -39,24 +39,22 @@ func help(gas []int, cost []int, i int) bool {
 
 func canCompleteCircuit1(gas []int, cost []int) int {
 	n := len(gas)
-	total,curr:=0,0
-	start:=0
-	for i:=0;i<n;i++{
-		total +=gas[i] - cost[i]
-		curr+= gas[i]-cost[i]
-		if curr<0{
-			start=i+1
-			curr=0
+	total, curr := 0, 0
+	start := 0
+	for i := 0; i < n; i++ {
+		total += gas[i] - cost[i]
+		curr += gas[i] - cost[i]
+		if curr < 0 {
+			start = i + 1
+			curr = 0
 		}
 	}
-	if total>=0{
+	if total >= 0 {
 		return start
 	}
 	return -1
 
-
 }
-
 
 func main() {
 	gas := []int{1, 2, 3, 4, 5}

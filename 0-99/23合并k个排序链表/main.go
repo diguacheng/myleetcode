@@ -6,7 +6,7 @@ type ListNode struct {
 }
 
 func mergeKLists(lists []*ListNode) *ListNode {
-	// 二分法 
+	// 二分法
 	for len(lists) > 1 {
 		temp := make([]*ListNode, 0)
 		i := len(lists) - 1

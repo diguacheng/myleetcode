@@ -53,35 +53,35 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	return res
 }
 func addTwoNumbers1(l1 *ListNode, l2 *ListNode) *ListNode {
-	res:=new(ListNode)
-	curr:=res
-	carry:=0
-	x,y:=0,0
-	for l1!=nil||l2!=nil{
-		if l1==nil{
-			x=0
-		}else{
-			x=l1.Val
+	res := new(ListNode)
+	curr := res
+	carry := 0
+	x, y := 0, 0
+	for l1 != nil || l2 != nil {
+		if l1 == nil {
+			x = 0
+		} else {
+			x = l1.Val
 		}
-		if l2==nil{
-			y=0
-		}else{
-			y=l2.Val
+		if l2 == nil {
+			y = 0
+		} else {
+			y = l2.Val
 		}
-		sum:=x+y+carry
-		carry=sum/10
-		curr.Next=&ListNode{carry,nil}
-		curr.Next.Val=sum%10
-		curr=curr.Next
-		if l1!=nil{
-			l1=l1.Next
+		sum := x + y + carry
+		carry = sum / 10
+		curr.Next = &ListNode{carry, nil}
+		curr.Next.Val = sum % 10
+		curr = curr.Next
+		if l1 != nil {
+			l1 = l1.Next
 		}
-		if l2!=nil{
-			l2=l2.Next
+		if l2 != nil {
+			l2 = l2.Next
 		}
 	}
-	if carry>0{
-		curr.Next=&ListNode{carry,nil}
+	if carry > 0 {
+		curr.Next = &ListNode{carry, nil}
 	}
 	return res.Next
 }

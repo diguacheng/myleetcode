@@ -21,12 +21,12 @@ func NewDLinknode(key, value int) *DLinknode {
 
 func Constructor(capacity int) LRUCache {
 	l := LRUCache{
-        size: 0, 
-        capacity: capacity, 
-        head: NewDLinknode(0, 0), 
-        tail: NewDLinknode(0, 0), 
-        cache: map[int]*DLinknode{},
-    }
+		size:     0,
+		capacity: capacity,
+		head:     NewDLinknode(0, 0),
+		tail:     NewDLinknode(0, 0),
+		cache:    map[int]*DLinknode{},
+	}
 	l.head.Next = l.tail
 	l.tail.Prev = l.head
 	return l
@@ -90,12 +90,12 @@ func main() {
 	s.Put(1, 1)
 	s.Put(2, 2)
 	fmt.Println(s.Get(1))
-	
+
 	s.Put(3, 3)
-	 fmt.Println( s.Get(2))
+	fmt.Println(s.Get(2))
 	s.Put(4, 4)
-    fmt.Println( s.Get(1))
-    fmt.Println( s.Get(3))
-    fmt.Println( s.Get(4))
+	fmt.Println(s.Get(1))
+	fmt.Println(s.Get(3))
+	fmt.Println(s.Get(4))
 
 }

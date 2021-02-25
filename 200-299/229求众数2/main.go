@@ -8,7 +8,7 @@ func majorityElement(nums []int) []int {
 
 	res := make([]int, 0)
 	list := make(map[int]int)
-	for _,num := range nums {
+	for _, num := range nums {
 		list[num]++
 		if list[num] > l {
 			res = append(res, num)
@@ -52,7 +52,7 @@ func majorityElement1(nums []int) []int {
 		if count2 == 0 {
 			cand2 = num
 			count2++
-            continue
+			continue
 		}
 
 		count1--
@@ -78,7 +78,6 @@ func majorityElement1(nums []int) []int {
 	return res
 }
 
-
 func main() {
 	a := []int{3, 2, 3}
 	b := []int{1}
@@ -88,5 +87,3 @@ func main() {
 	fmt.Println(majorityElement1(b))
 
 }
-
-

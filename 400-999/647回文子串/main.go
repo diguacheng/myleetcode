@@ -2,10 +2,8 @@ package main
 
 import "fmt"
 
-
-
 func countSubstrings3(s string) int {
-	// 中心拓展法 速度最快 
+	// 中心拓展法 速度最快
 	res := 0
 
 	n := len(s)
@@ -163,8 +161,6 @@ func countSubstrings2(s string) int {
 	backTrack(0)
 	return res
 }
-
-
 
 func main() {
 	fmt.Println(countSubstrings3("12343435342341"))

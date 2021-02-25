@@ -9,10 +9,10 @@ func findRotateSteps(ring string, key string) int {
 	l := len(key)
 	for i := 0; i < n; i++ {
 		if _, ok := idxTable[ring[i]]; !ok {
-			idxTable[ring[i]] = make([]int,0 )
+			idxTable[ring[i]] = make([]int, 0)
 		}
 		idxTable[ring[i]] = append(idxTable[ring[i]], i)
-		counts[i] = make([]int,l)
+		counts[i] = make([]int, l)
 	}
 
 	var dp func(start, i int) int
@@ -23,11 +23,11 @@ func findRotateSteps(ring string, key string) int {
 		if counts[start][i] > 0 {
 			return counts[start][i]
 		}
-		ends:= idxTable[key[i]]
+		ends := idxTable[key[i]]
 		min := 100000
 		for _, end := range ends {
-			mintemp := minL(start, end, n)+1+dp(end, i+1)
-			if min > mintemp{
+			mintemp := minL(start, end, n) + 1 + dp(end, i+1)
+			if min > mintemp {
 				min = mintemp
 			}
 		}
@@ -50,6 +50,6 @@ func minL(a, b, n int) int {
 func main() {
 	ring := "godding"
 	key := "gd"
-	fmt.Println(findRotateSteps(ring,key))
+	fmt.Println(findRotateSteps(ring, key))
 
 }

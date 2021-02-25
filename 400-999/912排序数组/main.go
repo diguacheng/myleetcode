@@ -1,6 +1,7 @@
 package main
 
-import ("fmt"
+import (
+	"fmt"
 	"sort"
 )
 
@@ -43,7 +44,6 @@ func ssort(nums []int) {
 func sortArray1(nums []int) []int {
 	sort.Ints(nums)
 	return nums
-
 
 }
 

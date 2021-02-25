@@ -11,22 +11,22 @@ func threeSumClosest(nums []int, target int) int {
 	m := 1 << 32
 	res := 0
 	for first := 0; first < n; first++ {
-		second:=first+1
-		third:=n-1
-		for second<third{
-			temp:=nums[first]+nums[second]+nums[third]
-			if temp==target{
+		second := first + 1
+		third := n - 1
+		for second < third {
+			temp := nums[first] + nums[second] + nums[third]
+			if temp == target {
 				return target
 			}
-			if temp>target{
+			if temp > target {
 				third--
-			}else{
+			} else {
 				second++
 			}
-			x:=abs(temp- target)
-			if x<m{
-				m=x
-				res=temp
+			x := abs(temp - target)
+			if x < m {
+				m = x
+				res = temp
 			}
 		}
 	}

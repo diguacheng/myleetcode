@@ -37,7 +37,7 @@ func myAtoi(str string) int {
 		return 0
 	}
 	sum := 0
-	v := 1 << 31 // 2**31 
+	v := 1 << 31 // 2**31
 	min := -v
 	max := v - 1
 	// 转换成数字 注意防止溢出
@@ -56,7 +56,7 @@ func myAtoi(str string) int {
 			break
 		}
 	}
-	// 如果flag=0说明改数是符号 
+	// 如果flag=0说明改数是符号
 	if flag == 0 {
 		sum = -sum
 	}

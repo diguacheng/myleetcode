@@ -35,27 +35,26 @@ func minDepth1(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	mind:=1<<31
-	var DFS func(root *TreeNode,depth int)
-	DFS=func(root *TreeNode,depth int){
-		if root.Left==nil && root.Right==nil{
+	mind := 1 << 31
+	var DFS func(root *TreeNode, depth int)
+	DFS = func(root *TreeNode, depth int) {
+		if root.Left == nil && root.Right == nil {
 			depth++
-			if depth<mind{
-				mind=depth
+			if depth < mind {
+				mind = depth
 			}
-			return 
+			return
 		}
-		if root.Left!=nil{
-			DFS(root.Left,depth+1)
+		if root.Left != nil {
+			DFS(root.Left, depth+1)
 		}
-		if root.Right != nil{
-			DFS(root.Right,depth+1)
+		if root.Right != nil {
+			DFS(root.Right, depth+1)
 		}
 	}
-	DFS(root,0)
+	DFS(root, 0)
 	return mind
 }
-
 
 func main() {
 

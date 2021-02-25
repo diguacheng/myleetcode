@@ -31,8 +31,8 @@ func min(a, b int) int {
 	return b
 }
 
-func main() { 
-	fmt.Println(integerReplacement(100000000)) 
-	fmt.Println(integerReplacement(7)) 
-	fmt.Println(integerReplacement(6)) 
+func main() {
+	fmt.Println(integerReplacement(100000000))
+	fmt.Println(integerReplacement(7))
+	fmt.Println(integerReplacement(6))
 }

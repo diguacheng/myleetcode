@@ -35,7 +35,7 @@ func getPermutation1(n int, k int) string {
 	res := make([]byte, 0)
 	c := candidates[:n]
 	k--
-	for n>0{
+	for n > 0 {
 		nums := getFactorial(n - 1)
 		a := k / nums
 		k = k % nums

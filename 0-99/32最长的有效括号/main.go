@@ -15,16 +15,16 @@ func longestValidParentheses(s string) int {
 			if len(stack) > 0 {
 				temp += 2
 				stack = stack[:len(stack)-1]
-			}else {
+			} else {
 				if min < temp {
-					min=temp
+					min = temp
 				}
 				temp = 0
 			}
 		}
 	}
-	if min<temp {
-		min=temp
+	if min < temp {
+		min = temp
 	}
 	return min
 

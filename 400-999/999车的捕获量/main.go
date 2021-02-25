@@ -20,9 +20,9 @@ func numRookCaptures(board [][]byte) int {
 		x := ri + dr[i]
 		y := rj + dc[i]
 		for x >= 0 && x < 8 && y <= 0 && y <= 8 {
-			if board[x][y] == 'B'{
+			if board[x][y] == 'B' {
 				break
-			} 
+			}
 			if board[x][y] == 'p' {
 				res++
 				break

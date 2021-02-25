@@ -13,14 +13,14 @@ func maxProfit(prices []int) int {
 
 }
 func maxProfit1(prices []int) int {
-	minpoint:=1<<31
+	minpoint := 1 << 31
 	max := 0
 	for i := 0; i < len(prices); i++ {
-		if minpoint>prices[i] {
-			minpoint=prices[i]
+		if minpoint > prices[i] {
+			minpoint = prices[i]
 		}
-		if prices[i]-minpoint>max{
-			max=prices[i]-minpoint
+		if prices[i]-minpoint > max {
+			max = prices[i] - minpoint
 		}
 	}
 	return max

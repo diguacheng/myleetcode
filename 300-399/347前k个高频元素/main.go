@@ -1,10 +1,9 @@
 package main
 
 import (
-	"container/heap"	
+	"container/heap"
 	"sort"
 )
-
 
 type IHeap [][2]int
 
@@ -32,12 +31,12 @@ func topKFrequent(nums []int, k int) []int {
 	h := &IHeap{}
 	heap.Init(h)
 	for key, value := range occurrences {
-		heap.Push(h, [2]int{key,value})
+		heap.Push(h, [2]int{key, value})
 		if h.Len() > k {
 			heap.Pop(h)
 		}
 	}
-	ret := make([]int,k)
+	ret := make([]int, k)
 	for i := 0; i < k; i++ {
 		ret[k-i-1] = heap.Pop(h).([2]int)[0]
 	}
@@ -45,25 +44,24 @@ func topKFrequent(nums []int, k int) []int {
 }
 
 func topKFrequent1(nums []int, k int) []int {
-    m := make(map[int]int)
-    s := make([]int,0)
-    for _,v := range nums {
-        i,ok := m[v]
-        if ok {
-            m[v] = i+1
-        }else{
-            m[v] = 1
-            s = append(s, v)
-        }
-    }
+	m := make(map[int]int)
+	s := make([]int, 0)
+	for _, v := range nums {
+		i, ok := m[v]
+		if ok {
+			m[v] = i + 1
+		} else {
+			m[v] = 1
+			s = append(s, v)
+		}
+	}
 
-    sort.Slice(s, func(i, j int) bool {
+	sort.Slice(s, func(i, j int) bool {
 		return m[s[i]] > m[s[j]]
 	})
 
-    return s[:k]
+	return s[:k]
 }
-
 
 func main() {
 

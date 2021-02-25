@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// 139题的题解 先检测是否可分 
+// 139题的题解 先检测是否可分
 func IFwordBreak(s string, wordDict []string) bool {
 	wordDictSet := make(map[string]bool)
 	for _, w := range wordDict {
@@ -24,9 +24,9 @@ func IFwordBreak(s string, wordDict []string) bool {
 	return dp[len(s)]
 }
 
-// 如果没有 139先用来检测可行性 会直接超时。 先检测可行性 再 用回溯算法求解 
+// 如果没有 139先用来检测可行性 会直接超时。 先检测可行性 再 用回溯算法求解
 func wordBreak(s string, wordDict []string) []string {
-	if IFwordBreak(s,wordDict)==false{
+	if IFwordBreak(s, wordDict) == false {
 		return []string{}
 	}
 	res := make([]string, 0)

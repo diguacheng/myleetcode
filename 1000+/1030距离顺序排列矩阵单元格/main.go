@@ -20,7 +20,7 @@ func allCellsDistOrder(R int, C int, r0 int, c0 int) [][]int {
 		for _, p := range list {
 			x, y := p[0], p[1]
 			for i := 0; i < 4; i++ {
-				if x+dx[i] >= 0 && x+dx[i] < R && y+dy[i] >= 0 && y+dy[i] < C && table[x+dx[i]][y+dy[i]] == 0 && distence(r0, c0,x+dx[i], y+dy[i]) == c {
+				if x+dx[i] >= 0 && x+dx[i] < R && y+dy[i] >= 0 && y+dy[i] < C && table[x+dx[i]][y+dy[i]] == 0 && distence(r0, c0, x+dx[i], y+dy[i]) == c {
 					table[x+dx[i]][y+dy[i]] = 1
 					res = append(res, []int{x + dx[i], y + dy[i]})
 					newlist = append(newlist, []int{x + dx[i], y + dy[i]})
@@ -46,6 +46,6 @@ func distence(x1, y1, x2, y2 int) int {
 }
 
 func main() {
-	fmt.Println(allCellsDistOrder(2,3,1,2))
+	fmt.Println(allCellsDistOrder(2, 3, 1, 2))
 
 }

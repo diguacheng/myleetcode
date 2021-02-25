@@ -51,5 +51,5 @@ func main() {
 		{10, 13, 14, 17, 24},
 		{18, 21, 23, 26, 30},
 	}
-	fmt.Println(searchMatrix(m,5))
+	fmt.Println(searchMatrix(m, 5))
 }

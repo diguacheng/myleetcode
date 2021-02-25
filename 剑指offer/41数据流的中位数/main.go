@@ -5,7 +5,6 @@ import (
 	"fmt"
 )
 
-
 type MinHeap []int
 
 func (h MinHeap) Len() int           { return len(h) }

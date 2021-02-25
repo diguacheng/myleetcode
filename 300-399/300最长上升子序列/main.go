@@ -19,7 +19,7 @@ func lengthOfLIS(nums []int) int {
 				}
 			}
 		}
-		dp=append(dp,maxval + 1)
+		dp = append(dp, maxval+1)
 		if maxans < dp[i] {
 			maxans = dp[i]
 

@@ -1,5 +1,6 @@
 package main
 
+//TODO 未完成
 func getMaxRepetitions(s1 string, n1 int, s2 string, n2 int) int {
 	if n1==0{
 		return 0

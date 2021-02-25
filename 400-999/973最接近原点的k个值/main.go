@@ -53,25 +53,22 @@ import (
 
 // }
 
-
-
 func kClosest(points [][]int, K int) [][]int {
-	sort.Slice(points,func(i, j int) bool {
-		return sqrt(points[i])<sqrt(points[j])
+	sort.Slice(points, func(i, j int) bool {
+		return sqrt(points[i]) < sqrt(points[j])
 	})
 	return points[:K]
 
 }
 
 func sqrt(point []int) float64 {
-	x, y :=point[0],point[1]
-	return math.Sqrt(float64(x*x+y*y))
+	x, y := point[0], point[1]
+	return math.Sqrt(float64(x*x + y*y))
 }
 
+func main() {
+	points := [][]int{{1, 3}, {2, -2}, {-2, 2}}
+	k := 2
+	fmt.Println(kClosest(points, k))
 
-func main(){
-	points:=[][]int{{1,3},{2,-2},{-2,2}}
-	k:=2
-	fmt.Println(kClosest(points,k))
-	
 }

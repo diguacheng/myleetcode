@@ -3,21 +3,21 @@ package main
 import "fmt"
 
 type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
 func maxDepth(root *TreeNode) int {
-	if root==nil{
+	if root == nil {
 		return 0
 	}
-	return 1+max(maxDepth(root.Left),maxDepth(root.Right))
+	return 1 + max(maxDepth(root.Left), maxDepth(root.Right))
 
 }
 
-func max(a,b int) int {
-	if a<b{
+func max(a, b int) int {
+	if a < b {
 		return b
 	}
 	return a

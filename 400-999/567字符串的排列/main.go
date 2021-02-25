@@ -49,5 +49,5 @@ func checkInclusion(s1 string, s2 string) bool {
 func main() {
 	s1 := "ab"
 	s2 := "eidboaoo"
-	fmt.Println(checkInclusion(s1,s2))
+	fmt.Println(checkInclusion(s1, s2))
 }

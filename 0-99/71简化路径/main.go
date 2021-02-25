@@ -30,13 +30,9 @@ func simplifyPath(path string) string {
 	return "/" + strings.Join(res, "/")
 }
 
-
-
 func simplifyPath1(path string) string {
 	return filepath.Clean(path)
 }
-
-
 
 func main() {
 	ss := "/../"

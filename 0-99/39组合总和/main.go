@@ -26,8 +26,8 @@ func backTrack(candidates []int, target int, temp []int, res *[][]int) {
 }
 
 func main() {
-	candidates:=[]int{2,3,6,7}
-	target :=7
-	fmt.Println(combinationSum(candidates, target) )
+	candidates := []int{2, 3, 6, 7}
+	target := 7
+	fmt.Println(combinationSum(candidates, target))
 
 }

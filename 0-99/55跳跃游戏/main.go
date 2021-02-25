@@ -31,27 +31,24 @@ func canJump(nums []int) bool {
 
 func canJump1(nums []int) bool {
 	//贪心策略
-	n:=len(nums)-1
-	max:=0
-	for i := 0; i <=n; i++{
-		if i<=max{
-			if max>i+nums[i]{
-				max=i+nums[i]
+	n := len(nums) - 1
+	max := 0
+	for i := 0; i <= n; i++ {
+		if i <= max {
+			if max > i+nums[i] {
+				max = i + nums[i]
 			}
-			if max>=n{
+			if max >= n {
 				return true
 			}
 		}
 	}
 	return false
 
-
-
-
 }
 
 func main() {
-	nums := []int{0,1}
+	nums := []int{0, 1}
 	fmt.Println(canJump(nums))
 
 }

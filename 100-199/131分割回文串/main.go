@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-// 失败了 
+// 失败了
 
 func partition(s string) [][]string {
 	n := len(s)
@@ -89,11 +89,11 @@ func partition(s string) [][]string {
 }
 
 func partition1(s string) [][]string {
-	n:=len(s)
-	if n<=1{
+	n := len(s)
+	if n <= 1 {
 		return [][]string{{s}}
 	}
-	res:=[][]string{}
+	res := [][]string{}
 	check := func(s string) bool {
 		n := len(s)
 		if n == 1 {
@@ -107,27 +107,25 @@ func partition1(s string) [][]string {
 		}
 		return true
 	}
-	var help func(temp []string,i int)
-	help = func(temp []string,i int){
-		if i==n{
-			ans:= make([]string,len(temp))
-			copy(ans,temp)
+	var help func(temp []string, i int)
+	help = func(temp []string, i int) {
+		if i == n {
+			ans := make([]string, len(temp))
+			copy(ans, temp)
 			res = append(res, ans)
 		}
-		for j:=i;j<n;j++{
-			if check(s[i:j+1]){
-				temp=append(temp, s[i:j+1])
-				help(temp,j+1)
-				temp=temp[:len(temp)-1]
+		for j := i; j < n; j++ {
+			if check(s[i : j+1]) {
+				temp = append(temp, s[i:j+1])
+				help(temp, j+1)
+				temp = temp[:len(temp)-1]
 			}
 		}
 	}
-	help([]string{},0)
+	help([]string{}, 0)
 	return res
 
 }
-
-
 
 func main() {
 	// 回溯法 从 后面回溯 。

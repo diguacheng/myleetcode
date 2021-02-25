@@ -14,8 +14,8 @@ func canPlaceFlowers(flowerbed []int, n int) bool {
 					return true
 				}
 				i += 2
-			}else{
-				i+=3
+			} else {
+				i += 3
 			}
 
 		} else {
@@ -41,6 +41,6 @@ func canPlaceFlowers(flowerbed []int, n int) bool {
 
 func main() {
 	arr := []int{1, 0, 0, 0, 0, 0, 1}
-	fmt.Println( canPlaceFlowers(arr,2))
+	fmt.Println(canPlaceFlowers(arr, 2))
 
 }

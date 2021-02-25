@@ -11,9 +11,9 @@ func isValid(s string) bool {
 }
 
 func main() {
-	x:=[]int{1,2,3,4,5}
-	
+	x := []int{1, 2, 3, 4, 5}
+
 	fmt.Println(reflect.TypeOf(x))
 	fmt.Println(x)
-	
+
 }

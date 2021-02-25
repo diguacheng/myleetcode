@@ -11,7 +11,7 @@ func search(nums []int, target int) bool {
 		if nums[mid] == target {
 			return true
 		}
-		if nums[mid]==nums[start]{
+		if nums[mid] == nums[start] {
 			start++
 			continue
 		}

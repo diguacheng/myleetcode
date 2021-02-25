@@ -41,30 +41,27 @@ func flatten(root *TreeNode) {
 	}
 }
 
-// 迭代解法 
+// 迭代解法
 func flatten1(root *TreeNode) {
 	if root == nil {
 		return
 	}
-	curr:=root 
+	curr := root
 	var preOrder *TreeNode
-	for curr!= nil{
-		if curr.Left!=nil{
-			preOrder=curr.Left
-			for preOrder.Right!=nil{
+	for curr != nil {
+		if curr.Left != nil {
+			preOrder = curr.Left
+			for preOrder.Right != nil {
 				preOrder = preOrder.Right
 			}
-			preOrder.Right=curr.Right
-			curr.Right=curr.Left 
+			preOrder.Right = curr.Right
+			curr.Right = curr.Left
 			curr.Left = nil
 		}
-		curr=curr.Right
+		curr = curr.Right
 	}
 
-
 }
-
-
 
 func main() {
 

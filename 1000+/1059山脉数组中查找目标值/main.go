@@ -6,24 +6,23 @@ import "fmt"
 // You should not implement it, or speculate about its implementation
 type MountainArray struct {
 	array []int
-
 }
 
-func Creater(nums []int)MountainArray{
-	return MountainArray{nums,}
+func Creater(nums []int) MountainArray {
+	return MountainArray{nums}
 }
 
 func (this *MountainArray) get(index int) int {
 	return this.array[index]
 }
-func (this *MountainArray) length() int       {
+func (this *MountainArray) length() int {
 	return len(this.array)
 }
 
 func (this *MountainArray) getmaxindex() int {
 
 	n := this.length() - 1
-	div := n / 10+1
+	div := n/10 + 1
 	maxindex := 0
 	for i := 1; i <= n; i += div {
 		a := this.get(i)
@@ -37,13 +36,13 @@ func (this *MountainArray) getmaxindex() int {
 		}
 		if div == 1 {
 			i = i + 1
-			for i <= n &&this.get(i) > this.get(i-1) {
+			for i <= n && this.get(i) > this.get(i-1) {
 				i++
 			}
-			if this.get(i)>this.get(i-1){
-				maxindex=i
-			}else{
-				maxindex =i-1
+			if this.get(i) > this.get(i-1) {
+				maxindex = i
+			} else {
+				maxindex = i - 1
 			}
 
 			break
@@ -57,7 +56,7 @@ func findInMountainArray(target int, mountainArr *MountainArray) int {
 	maxindex := mountainArr.getmaxindex()
 	n := mountainArr.length() - 1
 	start, end := 0, maxindex
-	a, b := -1,-1
+	a, b := -1, -1
 	for start <= end {
 		mid := (start + end) / 2
 		temp := mountainArr.get(mid)
@@ -66,9 +65,9 @@ func findInMountainArray(target int, mountainArr *MountainArray) int {
 			break
 		}
 		if temp > target {
-			end = mid-1
+			end = mid - 1
 		} else {
-			start = mid+1
+			start = mid + 1
 
 		}
 	}
@@ -81,9 +80,9 @@ func findInMountainArray(target int, mountainArr *MountainArray) int {
 			break
 		}
 		if temp < target {
-			end = mid-1
+			end = mid - 1
 		} else {
-			start = mid+1
+			start = mid + 1
 		}
 	}
 	if a >= 0 {
@@ -94,10 +93,10 @@ func findInMountainArray(target int, mountainArr *MountainArray) int {
 }
 
 func main() {
-	array :=[]int{1,2,3,4,5,3,1} 
+	array := []int{1, 2, 3, 4, 5, 3, 1}
 	target := 2
-	m:=Creater(array)
+	m := Creater(array)
 	fmt.Println(m.getmaxindex())
-	fmt.Println(findInMountainArray(target,&m))
+	fmt.Println(findInMountainArray(target, &m))
 
 }

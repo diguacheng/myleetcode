@@ -8,27 +8,27 @@ func uniquePathsWithObstacles(obstacleGrid [][]int) int {
 	for i := 0; i < m; i++ {
 		dp[i] = make([]int, n)
 	}
-	if obstacleGrid[0][0]==1{
-		dp[0][0]=0
-	}else{
-		dp[0][0]=1
+	if obstacleGrid[0][0] == 1 {
+		dp[0][0] = 0
+	} else {
+		dp[0][0] = 1
 	}
 	for i := 1; i < m; i++ {
 		dp[i][0] = dp[i-1][0]
 		if obstacleGrid[i][0] == 1 {
-			dp[i][0]=0
+			dp[i][0] = 0
 			break
 		}
-		
+
 	}
-	
+
 	for i := 1; i < n; i++ {
-		dp[0][i] =dp[0][i-1]
+		dp[0][i] = dp[0][i-1]
 		if obstacleGrid[0][i] == 1 {
-			dp[0][i]=0 
+			dp[0][i] = 0
 			break
 		}
-		
+
 	}
 	for i := 1; i < m; i++ {
 		for j := 1; j < n; j++ {
@@ -48,7 +48,7 @@ func main() {
 	// 	{0, 1, 0},
 	// 	{0, 0, 0},
 	// }
-	s:=[][]int{{0,1}}
+	s := [][]int{{0, 1}}
 	fmt.Println(uniquePathsWithObstacles(s))
 
 }

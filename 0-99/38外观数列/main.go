@@ -4,7 +4,6 @@ import (
 	"fmt"
 )
 
-
 func countAndSay(n int) string {
 	list := make([]string, n)
 	list[0] = "1"

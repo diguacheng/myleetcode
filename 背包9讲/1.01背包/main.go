@@ -2,30 +2,30 @@ package main
 
 import "fmt"
 
-func zeroOnePack(v,w []int,m int)int{
-	n:=len(v)
-	dp:=make([][]int,n+1)
-	for i:=0; i<=n; i++{
-		dp[i]=make([]int,m+1)
+func zeroOnePack(v, w []int, m int) int {
+	n := len(v)
+	dp := make([][]int, n+1)
+	for i := 0; i <= n; i++ {
+		dp[i] = make([]int, m+1)
 	}
-	for i:=1;i<=n;i++{
-		for j:=0; j <=m;j++{
-			dp[i][j] =dp[i-1][j]
-			if (j>=v[i-1]){
-				dp[i][j]=max(dp[i][j],dp[i-1][j-v[i-1]]+w[i-1])
+	for i := 1; i <= n; i++ {
+		for j := 0; j <= m; j++ {
+			dp[i][j] = dp[i-1][j]
+			if j >= v[i-1] {
+				dp[i][j] = max(dp[i][j], dp[i-1][j-v[i-1]]+w[i-1])
 			}
 		}
 	}
 	return dp[n][m]
 }
 
-func zeroOnePack1(v,w []int,m int)int{
-	//用1维数组 
-	n:=len(v)
-	dp:=make([]int,m+1)
-	for i:=1;i<=n;i++{
-		for j:=m; j>=v[i-1];j--{
-			dp[j]=max(dp[j],dp[j-v[i-1]]+w[i-1])
+func zeroOnePack1(v, w []int, m int) int {
+	//用1维数组
+	n := len(v)
+	dp := make([]int, m+1)
+	for i := 1; i <= n; i++ {
+		for j := m; j >= v[i-1]; j-- {
+			dp[j] = max(dp[j], dp[j-v[i-1]]+w[i-1])
 		}
 	}
 	return dp[m]

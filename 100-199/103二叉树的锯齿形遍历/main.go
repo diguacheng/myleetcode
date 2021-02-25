@@ -30,7 +30,7 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 				l2 = append(l2, node.Right)
 			}
 		}
-		if len(temp)>0{
+		if len(temp) > 0 {
 			res = append(res, temp)
 			temp = []int{}
 		}
@@ -45,7 +45,7 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 				l1 = append(l1, node.Left)
 			}
 		}
-		if len(temp)>0{
+		if len(temp) > 0 {
 			res = append(res, temp)
 			temp = []int{}
 		}

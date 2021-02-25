@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"sort")
-
+	"sort"
+)
 
 func combinationSum2(candidates []int, target int) [][]int {
 	res := [][]int{}
 	temp := make([]int, 0)
-	sort.Ints( candidates )
+	sort.Ints(candidates)
 	backTrack(candidates, target, temp, &res)
 	return res
 
@@ -21,7 +21,7 @@ func backTrack(candidates []int, target int, temp []int, res *[][]int) {
 		*res = append(*res, ans)
 	}
 	for i := 0; i < len(candidates); i++ {
-		if i!=0&&candidates[i] ==candidates[i-1] {
+		if i != 0 && candidates[i] == candidates[i-1] {
 			continue
 		}
 
@@ -34,7 +34,7 @@ func backTrack(candidates []int, target int, temp []int, res *[][]int) {
 }
 
 func main() {
-	candidates:=[]int{10,1,2,7,6,1,5}
-	target :=8
-	fmt.Println(combinationSum2( candidates, target))
+	candidates := []int{10, 1, 2, 7, 6, 1, 5}
+	target := 8
+	fmt.Println(combinationSum2(candidates, target))
 }

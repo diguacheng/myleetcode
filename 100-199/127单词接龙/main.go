@@ -92,7 +92,7 @@ func ladderLength(beginWord string, endWord string, wordList []string) int {
 	q := []int{len(wordList) - 1}
 	var nextQ []int
 	for len(q) > 0 { // BFS套路第一招，无脑循环到queue为空方才罢休
-		nextQ = []int{}        // BFS套路第二招，刚进入循环就为下一层的迭代做好准备
+		nextQ = []int{}         // BFS套路第二招，刚进入循环就为下一层的迭代做好准备
 		l++                     // 这里投机取巧把层数+1
 		for _, qid := range q { // BFS套路第三招： 迭代当前层的所有queue里面节点
 			w := wordList[qid] // 把这个word给我取出来
@@ -115,52 +115,50 @@ func ladderLength(beginWord string, endWord string, wordList []string) int {
 
 }
 
-
 func ladderLength2(beginWord string, endWord string, wordList []string) int {
-	wordict:=make(map[string][]int)
+	wordict := make(map[string][]int)
 	for idx, word := range wordList {
-		for i:=range word{
-			w:=word[0:i]+"*"+word[i+1:]
-			if _,ok :=wordict[w];!ok{
-				wordict[w]=[]int{}
+		for i := range word {
+			w := word[0:i] + "*" + word[i+1:]
+			if _, ok := wordict[w]; !ok {
+				wordict[w] = []int{}
 			}
-			wordict[w]=append(wordict[w],idx)
+			wordict[w] = append(wordict[w], idx)
 		}
 	}
-	used:=make([]bool,len(wordList))
-	l:=1 
-	wordList=append(wordList,beginWord)
-	q:=[]int{len(wordList)-1}
-	for len(q)>0{
+	used := make([]bool, len(wordList))
+	l := 1
+	wordList = append(wordList, beginWord)
+	q := []int{len(wordList) - 1}
+	for len(q) > 0 {
 		fmt.Println(len(q))
-		nextQ:=[]int{}
-		l++ 
-		for _,qid:=range q{
-			w:=wordList[qid]
-			
-			for i:=range w{
+		nextQ := []int{}
+		l++
+		for _, qid := range q {
+			w := wordList[qid]
 
-				k:=w[0:i] + "*" + w[i+1:]
-				fmt.Println("k "  , k)
-				for _,wid:=range wordict[k]{
-				
-					if wordList[wid]==endWord{
+			for i := range w {
+
+				k := w[0:i] + "*" + w[i+1:]
+				fmt.Println("k ", k)
+				for _, wid := range wordict[k] {
+
+					if wordList[wid] == endWord {
 						return l
 					}
-					if used[wid]==false{
-						nextQ=append(nextQ,wid)
-						used[wid]=true
+					if used[wid] == false {
+						nextQ = append(nextQ, wid)
+						used[wid] = true
 
 					}
 				}
-			
+
 			}
 		}
-		q= nextQ
+		q = nextQ
 	}
 	return 0
 }
-
 
 func main() {
 

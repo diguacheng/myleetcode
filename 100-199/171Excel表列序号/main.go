@@ -7,7 +7,7 @@ func titleToNumber(s string) int {
 	sum := 0
 	c := 1
 	for i := n - 1; i >= 0; i-- {
-		sum +=int (s[i] - 'A' + 1) * c
+		sum += int(s[i]-'A'+1) * c
 		c = c * 26
 	}
 	return sum

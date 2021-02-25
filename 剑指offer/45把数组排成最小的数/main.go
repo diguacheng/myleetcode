@@ -91,9 +91,9 @@ func minNumber2(nums []int) string {
 		numstr = append(numstr, strconv.Itoa(num))
 	}
 	sort.Slice(numstr, func(i, j int) bool {
-		a,_:=strconv.Atoi(numstr[i]+numstr[j])
-		b,_:=strconv.Atoi(numstr[j]+numstr[i])
-		return a<b
+		a, _ := strconv.Atoi(numstr[i] + numstr[j])
+		b, _ := strconv.Atoi(numstr[j] + numstr[i])
+		return a < b
 
 	})
 

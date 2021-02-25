@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func addStrings(num1 string, num2 string) string {
-	carry :=0
+	carry := 0
 	l1 := len(num1) - 1
 	l2 := len(num2) - 1
 	l := l1
@@ -13,7 +13,7 @@ func addStrings(num1 string, num2 string) string {
 	res := make([]byte, l+2)
 	var temp int
 	for l1 >= 0 && l2 >= 0 {
-		temp = int(num1[l1]-'0'+num2[l2]-'0')+carry
+		temp = int(num1[l1]-'0'+num2[l2]-'0') + carry
 		carry = temp / 10
 		temp = temp % 10
 		res[l+1] = byte(temp + '0')
@@ -40,7 +40,7 @@ func addStrings(num1 string, num2 string) string {
 	if carry > 0 {
 		res[l+1] = byte(carry + '0')
 	}
-	if res[0] == '0'||res[0]==0 {
+	if res[0] == '0' || res[0] == 0 {
 		res = res[1:]
 	}
 	return string(res)
@@ -49,7 +49,5 @@ func main() {
 	num1 := "6"
 	num2 := "501"
 	fmt.Println(addStrings(num1, num2))
-	
-
 
 }

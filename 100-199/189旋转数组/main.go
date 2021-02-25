@@ -3,23 +3,23 @@ package main
 import "fmt"
 
 func rotate(nums []int, k int) {
-	n:=len(nums)
-	k=k%n
-	s,e:=0,n-1
-	for s<e {
-		nums[s],nums[e]= nums[e], nums[s]
+	n := len(nums)
+	k = k % n
+	s, e := 0, n-1
+	for s < e {
+		nums[s], nums[e] = nums[e], nums[s]
 		s++
 		e--
 	}
-	s,e=0,k-1
-	for s<e {
-		nums[s],nums[e]= nums[e], nums[s]
+	s, e = 0, k-1
+	for s < e {
+		nums[s], nums[e] = nums[e], nums[s]
 		s++
 		e--
 	}
-	s,e=k,n-1
-	for s<e {
-		nums[s],nums[e]= nums[e], nums[s]
+	s, e = k, n-1
+	for s < e {
+		nums[s], nums[e] = nums[e], nums[s]
 		s++
 		e--
 	}

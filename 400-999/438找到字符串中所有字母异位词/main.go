@@ -21,7 +21,7 @@ func findAnagrams(s string, p string) []int {
 		}
 		return true
 	}
-	match := 0// 表示匹配的字符种类数
+	match := 0 // 表示匹配的字符种类数
 	left, right := 0, 0
 	res := []int{}
 	var char, leftChar byte
@@ -48,7 +48,6 @@ func findAnagrams(s string, p string) []int {
 	return res
 }
 
-
 func findAnagrams1(s string, p string) []int {
 	lenS := len(s)
 	lenP := len(p)
@@ -61,19 +60,19 @@ func findAnagrams1(s string, p string) []int {
 		need[p[i]-'a']++
 	}
 	check := func() bool {
-		for i:=0;i<26;i++{
-			if window[i]!=need[i]{
+		for i := 0; i < 26; i++ {
+			if window[i] != need[i] {
 				return false
 			}
 		}
-		return  true
+		return true
 	}
-	match := 0// 表示匹配的字符个数
+	match := 0 // 表示匹配的字符个数
 	left, right := 0, 0
 	res := []int{}
 	var idx, leftidx byte
 	for right < lenS {
-		idx = s[right]-'a'
+		idx = s[right] - 'a'
 		window[idx]++
 		right++
 		if window[idx] <= need[idx] {
@@ -83,10 +82,10 @@ func findAnagrams1(s string, p string) []int {
 			if check() {
 				res = append(res, left)
 			}
-			leftidx = s[left]-'a'
+			leftidx = s[left] - 'a'
 			left++
 			// 这里要注意一下细节,如果need[leftChar]==0，也可能导致match被减
-			if window[leftidx]<= need[leftidx] {
+			if window[leftidx] <= need[leftidx] {
 				match--
 			}
 			window[leftidx]--
@@ -94,7 +93,6 @@ func findAnagrams1(s string, p string) []int {
 	}
 	return res
 }
-
 
 func main() {
 	s := "cbaebabacd"

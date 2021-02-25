@@ -17,14 +17,14 @@ func orangesRotting(grid [][]int) int {
 			}
 		}
 	}
-	days = append(days, nums)// days 列表存储第i天被感染的橘子数目。
+	days = append(days, nums) // days 列表存储第i天被感染的橘子数目。
 	count := 0
 	xindex, yindex := 0, 0
 	for count <= len(days)-1 {
 		nums = 0
 		for days[count] > 0 {
 			x, y := listx[xindex], listy[yindex]
-			// 检查当前节点的上下左右是否有可以被感染的橘子，并保存他们的坐标 
+			// 检查当前节点的上下左右是否有可以被感染的橘子，并保存他们的坐标
 			if x-1 >= 0 && x-1 < len(grid) && y >= 0 && y < len(grid[0]) && grid[x-1][y] == 1 {
 				grid[x-1][y] = 2
 				listx = append(listx, x-1)
@@ -94,7 +94,7 @@ func orangesRotting1(grid [][]int) int {
 		nums = 0
 		for days[count] > 0 {
 			x, y := listx[xindex], listy[yindex]
-			nums=isFreshOrange(x-1,y,grid,listx,listy)+isFreshOrange(x+1,y,grid,listx,listy)+isFreshOrange(x,y-1,grid,listx,listy)+isFreshOrange(x,y+1,grid,listx,listy)
+			nums = isFreshOrange(x-1, y, grid, listx, listy) + isFreshOrange(x+1, y, grid, listx, listy) + isFreshOrange(x, y-1, grid, listx, listy) + isFreshOrange(x, y+1, grid, listx, listy)
 			days[count]--
 			xindex++
 			yindex++
@@ -118,9 +118,9 @@ func orangesRotting1(grid [][]int) int {
 
 }
 
-func isFreshOrange(x, y int, grid [][]int, listx,listy []int) int {
+func isFreshOrange(x, y int, grid [][]int, listx, listy []int) int {
 	if x >= 0 && x < len(grid) && y >= 0 && y < len(grid) && grid[x][y] == 1 {
-		grid[x][y]=2
+		grid[x][y] = 2
 		listx = append(listx, x)
 		listy = append(listy, y)
 		return 1

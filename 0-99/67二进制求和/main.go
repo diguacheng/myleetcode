@@ -67,11 +67,11 @@ func addBinary(a string, b string) string {
 	if carry == 1 {
 		res[l] = '1'
 	}
-	flag:=false
+	flag := false
 	for i := 0; i < len(res); i++ {
 		if res[i] == '1' {
 			res = res[i:]
-			flag=true
+			flag = true
 			break
 		}
 	}

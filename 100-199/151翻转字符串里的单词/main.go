@@ -12,7 +12,7 @@ func reverseWords(s string) string {
 	for end >= 0 {
 		if s[end] == ' ' {
 			end--
-		}else{
+		} else {
 			start = end
 			for start >= 0 && s[start] != ' ' {
 				start--
@@ -33,13 +33,12 @@ func reverseWords(s string) string {
 }
 
 func reverseWords1(s string) string {
-	seg:=strings.Fields(s)
-	resseg:=make([]string,0)
-	for i:=len(seg)-1;i>=0;i--{
-		resseg = append(resseg,seg[i])
+	seg := strings.Fields(s)
+	resseg := make([]string, 0)
+	for i := len(seg) - 1; i >= 0; i-- {
+		resseg = append(resseg, seg[i])
 	}
-	return strings.Join(resseg," ")
-
+	return strings.Join(resseg, " ")
 
 }
 func main() {

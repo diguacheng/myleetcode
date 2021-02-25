@@ -34,33 +34,32 @@ func longestPalindrome(s string) string {
 
 func longestPalindrome3(s string) string {
 	// 自底向上 动态规划
-	ans:=""
-	n:=len(s)
-	dp:=make([][]int,n)
-	for i := 0; i <n; i++{
-		dp[i]=make([]int,n)
+	ans := ""
+	n := len(s)
+	dp := make([][]int, n)
+	for i := 0; i < n; i++ {
+		dp[i] = make([]int, n)
 	}
-	for j:=0;j<n;j++{
-		for i := j; i>=0;i--{
-			if i==j{
-				dp[i][j]=1
-			}else if j-i==1{
-				if s[i]==s[j]{
-					dp[i][j]=2
+	for j := 0; j < n; j++ {
+		for i := j; i >= 0; i-- {
+			if i == j {
+				dp[i][j] = 1
+			} else if j-i == 1 {
+				if s[i] == s[j] {
+					dp[i][j] = 2
 				}
-			}else if i+1<j{
-				if s[i]==s[j]&&dp[i+1][j-1]>0{
-					dp[i][j]=dp[i+1][j-1]+2
+			} else if i+1 < j {
+				if s[i] == s[j] && dp[i+1][j-1] > 0 {
+					dp[i][j] = dp[i+1][j-1] + 2
 				}
 			}
-			if dp[i][j]>len(ans){
-				ans=s[i :j+1]
+			if dp[i][j] > len(ans) {
+				ans = s[i : j+1]
 			}
 		}
 	}
-	return ans 
+	return ans
 }
-
 
 func longestPalindrome1(s string) string {
 	// 中心扩展法
@@ -87,7 +86,6 @@ func expandAroundCenter(s string, left, right int) (int, int) {
 	return left + 1, right - 1
 }
 
-
 func longestPalindrome2(s string) string {
 	//超时 动态规划
 	n := len(s)
@@ -96,29 +94,29 @@ func longestPalindrome2(s string) string {
 	for i := 0; i < n; i++ {
 		dp[i] = make([]int, n)
 	}
-	var help func(i,j int)int
-	help = func(i,j int)int {
-		if dp[i][j]!=0{
+	var help func(i, j int) int
+	help = func(i, j int) int {
+		if dp[i][j] != 0 {
 			return dp[i][j]
 		}
-		if j-i==0{
-			dp[i][j] =1
+		if j-i == 0 {
+			dp[i][j] = 1
 			return dp[i][j]
 		}
-		if j-i==1&&s[i]==s[j]{
-			dp[i][j] =1
+		if j-i == 1 && s[i] == s[j] {
+			dp[i][j] = 1
 			return dp[i][j]
 		}
-		if s[i] == s[j]{
-			return help(i+1,j-1)
+		if s[i] == s[j] {
+			return help(i+1, j-1)
 		}
-		dp[i][j]=-1
+		dp[i][j] = -1
 		return dp[i][j]
 	}
 
 	for i := 0; i < n; i++ {
 		for j := i; j < n; j++ {
-			if help(i,j)==1&&j+1-i>len(ans){
+			if help(i, j) == 1 && j+1-i > len(ans) {
 				ans = s[i : j+1]
 			}
 		}

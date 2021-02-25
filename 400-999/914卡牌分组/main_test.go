@@ -13,9 +13,9 @@ func Test_gcd(t *testing.T) {
 		want int
 	}{
 		// TODO: Add test cases.
-		{"1",args{9,27},9},
-		{"2",args{2,3},1},
-		{"3",args{15,25},5},
+		{"1", args{9, 27}, 9},
+		{"2", args{2, 3}, 1},
+		{"3", args{15, 25}, 5},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

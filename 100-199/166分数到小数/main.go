@@ -1,6 +1,7 @@
 package main
 
 
+// 未完成
 func fractionToDecimal(numerator int, denominator int) string {
 	var gcd func(a,b int)int
 	gcd=func(a,b int)int{

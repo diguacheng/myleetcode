@@ -5,54 +5,54 @@ import "fmt"
 // 和为s的两个数字
 
 func twoSum(nums []int, target int) []int {
-	start:=0
-	end:=len(nums)-1
-	for start<end{
-		if nums[start]+nums[end]<target{
+	start := 0
+	end := len(nums) - 1
+	for start < end {
+		if nums[start]+nums[end] < target {
 			start++
-		}else if nums[start]+nums[end]>target{
+		} else if nums[start]+nums[end] > target {
 			end--
-			
-		}else{
+
+		} else {
 			break
 		}
 
 	}
-	return []int{nums[start],nums[end]}
+	return []int{nums[start], nums[end]}
 
 }
 
 func findContinuousSequence(target int) [][]int {
-	if target==1||target==2{
+	if target == 1 || target == 2 {
 		return [][]int{{}}
 	}
-	res:=[][]int{}
-	small,big :=1,2
-	mid:=(1+target)/2
-	curSum:=small+big
-	for small<mid{
-		if curSum==target{
-			temp:=[]int{}
-			for i:=small;i<=big;i++{
-				temp=append(temp,i)
+	res := [][]int{}
+	small, big := 1, 2
+	mid := (1 + target) / 2
+	curSum := small + big
+	for small < mid {
+		if curSum == target {
+			temp := []int{}
+			for i := small; i <= big; i++ {
+				temp = append(temp, i)
 			}
-			res=append(res,temp)
+			res = append(res, temp)
 		}
-		for curSum>target&&small<mid{
-			curSum-=small
+		for curSum > target && small < mid {
+			curSum -= small
 			small++
-			if curSum==target{
-				temp:=[]int{}
-				for i:=small;i<=big;i++{
-					temp=append(temp,i)
+			if curSum == target {
+				temp := []int{}
+				for i := small; i <= big; i++ {
+					temp = append(temp, i)
 				}
-				res=append(res,temp)
+				res = append(res, temp)
 
 			}
-			
+
 		}
 		big++
-		curSum+=big
+		curSum += big
 	}
 	return res
 

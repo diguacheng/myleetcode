@@ -195,7 +195,7 @@ func numSquares4(n int) int {
 
 func main() {
 	fmt.Println(numSquares3(12))
-	fmt.Println(12&3)
+	fmt.Println(12 & 3)
 	fmt.Println(numSquares4(12))
 
 }

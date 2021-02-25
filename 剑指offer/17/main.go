@@ -17,22 +17,22 @@ func printNumbers(n int) []int {
 
 func printNumbers1(n int) {
 	if n <= 0 {
-		return 
+		return
 	}
 	s := []byte{}
 	for i := 0; i < n; i++ {
 		s = append(s, '0')
 	}
-	for !Incerment(s){
+	for !Incerment(s) {
 		fmt.Println(string(s))
 
 	}
-	return 
+	return
 }
 
 func Incerment(s []byte) bool {
-	flag := false // 标记是否溢出
-	nTakeOver := 0// 进位 
+	flag := false  // 标记是否溢出
+	nTakeOver := 0 // 进位
 	nLenth := len(s)
 	for i := nLenth - 1; i >= 0; i-- {
 		nSum := int(s[i]-'0') + nTakeOver

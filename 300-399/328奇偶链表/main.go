@@ -11,27 +11,27 @@ func oddEvenList(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	odd :=  head.Next // 奇数
+	odd := head.Next // 奇数
 	var pre *ListNode
 	pe, po := head, head.Next
 	for po.Next != nil {
-		pre=pe
+		pre = pe
 		pe.Next = po.Next
 		pe = pe.Next
-		if pe.Next!= nil {
+		if pe.Next != nil {
 			po.Next = pe.Next
 			po = po.Next
 		} else {
-			po.Next=nil
+			po.Next = nil
 			break
 		}
 	}
-	if pe==nil{
-		pre.Next=odd
-	}else{
-		pe.Next=odd
+	if pe == nil {
+		pre.Next = odd
+	} else {
+		pe.Next = odd
 	}
-	return head 
+	return head
 
 }
 
@@ -47,7 +47,7 @@ func main() {
 	head = oddEvenList(head.Next)
 	for i := 0; i < 5; i++ {
 		fmt.Println(head.Val)
-		head=head.Next
+		head = head.Next
 	}
 
 }

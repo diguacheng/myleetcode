@@ -7,10 +7,10 @@ type TreeNode struct {
 }
 
 func mirrorTree(root *TreeNode) *TreeNode {
-	if root==nil{
+	if root == nil {
 		return nil
 	}
-	root.Left,root.Right =mirrorTree(root.Right),mirrorTree(root.Left)
+	root.Left, root.Right = mirrorTree(root.Right), mirrorTree(root.Left)
 	return root
 
 }

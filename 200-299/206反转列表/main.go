@@ -7,9 +7,9 @@ type ListNode struct {
 	Next *ListNode
 }
 
-// 用 栈保存 最后再倒出来 
+// 用 栈保存 最后再倒出来
 func reverseList(head *ListNode) *ListNode {
-	if head==nil{
+	if head == nil {
 		return nil
 	}
 	stack := make([]*ListNode, 0)
@@ -18,44 +18,42 @@ func reverseList(head *ListNode) *ListNode {
 		head = head.Next
 
 	}
-	res:=head
+	res := head
 	for len(stack) != 0 {
 		head.Next = stack[len(stack)-1]
 		head = head.Next
 		stack = stack[0 : len(stack)-1]
 	}
-	head.Next=nil
+	head.Next = nil
 	return res
 }
 
-// 迭代 
+// 迭代
 func reverseList1(head *ListNode) *ListNode {
 	var prev *ListNode
-	var curr *ListNode=head
-	for curr!=nil{
-		temp:=curr.Next
-		curr.Next=prev
-		prev =curr
-		curr=temp
+	var curr *ListNode = head
+	for curr != nil {
+		temp := curr.Next
+		curr.Next = prev
+		prev = curr
+		curr = temp
 	}
 	return prev
 
 }
 
-// 递归 
+// 递归
 func reverseList2(head *ListNode) *ListNode {
-	// 
-	if head == nil||head.Next==nil {
+	//
+	if head == nil || head.Next == nil {
 		return head
 	}
-	res:=reverseList2(head.Next)
-	head.Next.Next=head
-	head.Next=nil
+	res := reverseList2(head.Next)
+	head.Next.Next = head
+	head.Next = nil
 	return res
 
-
 }
-
 
 func main() {
 	var head *ListNode

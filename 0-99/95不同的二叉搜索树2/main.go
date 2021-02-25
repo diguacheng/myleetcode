@@ -8,41 +8,40 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-
 func generateTrees(n int) []*TreeNode {
-    if n == 0 {
-        return nil
-    }
-    return helper(1, n)
+	if n == 0 {
+		return nil
+	}
+	return helper(1, n)
 }
 
-func helper(start,end int)[]*TreeNode {
-	if start>end{
+func helper(start, end int) []*TreeNode {
+	if start > end {
 		return []*TreeNode{nil}
 	}
-	res:=make([]*TreeNode,0)
-	for i:=start; i <=end; i++{
-		leftTrees:=helper(start,i-1)
-		rightTrees:=helper(i+1,end)
-		for _,left:= range leftTrees{
-			for _,right:= range rightTrees{
-				root:=&TreeNode{i,nil,nil}
-				root.Left=left
-				root.Right=right
-				res=append(res,root)
+	res := make([]*TreeNode, 0)
+	for i := start; i <= end; i++ {
+		leftTrees := helper(start, i-1)
+		rightTrees := helper(i+1, end)
+		for _, left := range leftTrees {
+			for _, right := range rightTrees {
+				root := &TreeNode{i, nil, nil}
+				root.Left = left
+				root.Right = right
+				res = append(res, root)
 			}
 		}
 	}
 	return res
 }
 
-// 这道题 应该选用递归做，二叉搜索树的性质就是左子树的值都比根节点小 右子树的值 都比根节点大 
+// 这道题 应该选用递归做，二叉搜索树的性质就是左子树的值都比根节点小 右子树的值 都比根节点大
 // 因此 不同的值做根节点，就会有不同的结果，
-// 可以选定根节点i，在递归地求左子树0..i-1 和右子树i+1..n 
+// 可以选定根节点i，在递归地求左子树0..i-1 和右子树i+1..n
 //  我没有做出来的原因是 求解递归函数的时候，没有考虑清楚 节点范围为0时的情况。
 // 上面解法中，当start>end 说明最左侧的点时根节点， 当start=end 时 说明该子树只有一个点 。
 
-// 失败的代码 
+// 失败的代码
 // func generateTrees(n int) []*TreeNode {
 // 	trees := make([]*TreeNode, n)
 // 	res := make([]*TreeNode, 0)

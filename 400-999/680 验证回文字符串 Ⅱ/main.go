@@ -11,7 +11,7 @@ func validPalindrome(s string) bool {
 			if s[l] == s[r] {
 				l++
 				r--
-			}else if flag > 0 {
+			} else if flag > 0 {
 				flag--
 				return help(s[l:r]) || help(s[l+1:r+1])
 			} else {

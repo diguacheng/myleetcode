@@ -27,9 +27,9 @@ func lastRemaining(n int, m int) int {
 
 func lastRemaining2(n int, m int) int {
 	// 数学+迭代
-	res:=0
+	res := 0
 	for i := 2; i != n+1; i++ {
-		res=(res+m)%i
+		res = (res + m) % i
 	}
 	return res
 

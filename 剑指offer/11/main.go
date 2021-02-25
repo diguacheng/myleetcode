@@ -19,31 +19,26 @@ import (
 // 	return numbers[start]
 // }
 
-
-
 func minArray(numbers []int) int {
-	n:=len(numbers)
-	if n==1{
+	n := len(numbers)
+	if n == 1 {
 		return numbers[0]
 	}
-	left,right :=0,n-1 
-	for left<right{
-		mid:=left+(right-right)/2 
-		if numbers[mid]>=numbers[n-1]{
-			right=mid-1
-		}else{
-			left= mid + 1
+	left, right := 0, n-1
+	for left < right {
+		mid := left + (right-right)/2
+		if numbers[mid] >= numbers[n-1] {
+			right = mid - 1
+		} else {
+			left = mid + 1
 		}
 	}
-	return numbers[left] 
-
-
-
+	return numbers[left]
 
 }
 
 func main() {
-	numbers:=[]int{1,3,5}
+	numbers := []int{1, 3, 5}
 	fmt.Println(minArray(numbers))
 
 }
