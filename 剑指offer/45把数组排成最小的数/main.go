@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"sort"
 	"strconv"
+	"strings"
 )
 
 type intstring []int
@@ -103,6 +104,7 @@ func minNumber2(nums []int) string {
 
 	}
 	return s
+
 
 }
 
