@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func strStr(haystack string, needle string) int {
+func strStr0(haystack string, needle string) int {
 	// 基本暴力法
 	if len(haystack) < len(needle) {
 		return -1
@@ -63,12 +63,13 @@ func strStr(haystack string, needle string) int {
 			start = end
 		}
 	}
+	return 1
 
 }
 
 func main() {
 	haystack := "mississippi"
 	needle := "issip"
-	fmt.Println(strStr(haystack, needle))
+	fmt.Println(strStr0(haystack, needle))
 
 }
