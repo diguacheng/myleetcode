@@ -105,7 +105,6 @@ func minNumber2(nums []int) string {
 	}
 	return s
 
-
 }
 
 func main() {

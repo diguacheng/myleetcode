@@ -23,24 +23,23 @@ func countBits(num int) []int {
 
 }
 
-
 func countBits1(num int) []int {
-    if num==0{
-        return []int{0}
-    }
-    res:=[]int{0,1}
-    i:=2
-    for i<=num{
-        cnt:=0
-        curr:=i 
-        for curr>0{
-            cnt+=curr&1
-            curr=curr>>1
-        }
-        res=append(res,cnt)
+	if num == 0 {
+		return []int{0}
+	}
+	res := []int{0, 1}
+	i := 2
+	for i <= num {
+		cnt := 0
+		curr := i
+		for curr > 0 {
+			cnt += curr & 1
+			curr = curr >> 1
+		}
+		res = append(res, cnt)
 		i++
-    }
-    return res
+	}
+	return res
 }
 
 func main() {

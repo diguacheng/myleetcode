@@ -13,7 +13,7 @@ func removeDuplicates(S string) string {
 	for i < n {
 		if len(st) == 0 || st[len(st)-1] != S[i] {
 			st = append(st, S[i])
-		}else if  len(st) > 0 && st[len(st)-1] == S[i] {
+		} else if len(st) > 0 && st[len(st)-1] == S[i] {
 			st = st[:len(st)-1]
 		}
 		i++
