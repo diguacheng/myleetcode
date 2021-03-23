@@ -13,7 +13,7 @@ func GetLeastNumbers_Solution(input []int, k int) []int {
 
 }
 
-func qMink(input []int, k int){
+func qMink(input []int, k int) {
 	p := qSelect(input)
 	if k > p+1 {
 		qMink(input[p+1:], k-p-1)
@@ -27,7 +27,7 @@ func qMink(input []int, k int){
 func qSelect(input []int) int {
 	n := len(input)
 	left, right := 0, n-1
-	p:=n-1
+	p := n - 1
 	for left < right {
 		for left < right && input[left] <= input[right] {
 			left++
@@ -48,21 +48,19 @@ func qSelect(input []int) int {
 }
 
 func main() {
-	// var n int 
+	// var n int
 	// fmt.Scan(&n)
 	// arr:=make([]int,n)
 	// for i:=0;i<n;i++{
 	// 	fmt.Scan(&arr[i])
 	// }
-	// var k int 
+	// var k int
 	// fmt.Scan(&k)
 	var s string
 	for {
 		fmt.Scan(&s)
 		fmt.Println(s)
 	}
-
-
 
 	//fmt.Println(GetLeastNumbers_Solution(arr,k))
 }

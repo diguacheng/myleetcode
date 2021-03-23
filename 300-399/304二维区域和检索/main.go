@@ -1,3 +1,4 @@
+package main
 type NumMatrix struct {
     m [][]int
 }

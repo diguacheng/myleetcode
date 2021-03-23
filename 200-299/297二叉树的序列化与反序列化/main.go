@@ -12,10 +12,6 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-
-
-
-
 type Codec struct {
 }
 
@@ -45,7 +41,7 @@ func rserialize(root *TreeNode, str string) string {
 func (this *Codec) deserialize(data string) *TreeNode {
 	dataSlice := strings.Split(data, ",")
 	dataSlice = dataSlice[:len(dataSlice)-1]
-	
+
 	root, _ := rdeserialize(dataSlice, 0)
 	return root
 }
@@ -58,16 +54,14 @@ func rdeserialize(l []string, i int) (*TreeNode, int) {
 	}
 	num, _ := strconv.Atoi(l[i])
 
-	root := &TreeNode{Val:num}
-	
-	var a,b int
+	root := &TreeNode{Val: num}
+
+	var a, b int
 	root.Left, a = rdeserialize(l, i+1)
 	root.Right, b = rdeserialize(l, a)
 	return root, b
 
 }
-
-
 
 /**
  * Your Codec object will be instantiated and called as such:

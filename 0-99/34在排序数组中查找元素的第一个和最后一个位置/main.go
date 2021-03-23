@@ -62,6 +62,34 @@ func searchRange1(nums []int, target int) []int {
 	}
 	return res
 }
+
+func searchRange2(nums []int, target int) []int {
+	n := len(nums)
+	if n == 0 {
+		return []int{-1, -1}
+	}
+	start := binarySerach(nums, target)
+	if nums[start] != target || start == n {
+		return []int{-1, -1}
+	}
+	end := binarySerach(nums, target+1) - 1
+	return []int{start, end}
+
+}
+
+func binarySerach(arr []int, target int) int {
+	n := len(arr)
+	l, r := 0, n
+	for l <= r {
+		mid := (l + r) >> 1
+		if arr[mid] >= target {
+			r = mid
+		} else {
+			l = mid + 1
+		}
+	}
+	return l
+}
 func main() {
 	nums := []int{1}
 	fmt.Println(searchRange1(nums, 1))

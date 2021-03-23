@@ -18,8 +18,8 @@ func findLengthOfLCIS(nums []int) int {
 			start = i
 		}
 	}
-	if i-start>max{
-		max=i-start
+	if i-start > max {
+		max = i - start
 	}
 	return max
 }
