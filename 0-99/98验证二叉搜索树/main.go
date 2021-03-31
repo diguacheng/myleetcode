@@ -1,6 +1,9 @@
 package main
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 type TreeNode struct {
 	Val   int
@@ -81,5 +84,5 @@ func isValidBST1(root *TreeNode) bool {
 }
 
 func main() {
-
+	fmt.Println(math.MaxInt64,math.MinInt64)
 }
