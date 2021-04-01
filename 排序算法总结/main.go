@@ -305,9 +305,9 @@ func radixSort(arr []int) []int {
 
 func exectime(s func([]int) []int, in []int) {
 	start := time.Now()
-	res := s(in)
+	_ = s(in)
 	dur := time.Since(start)
-	fmt.Println(res)
+	//fmt.Println(res)
 	fmt.Println(dur)
 
 }
@@ -358,8 +358,9 @@ func t() {
 	fmt.Println(a)
 }
 func main() {
-	arr := generateRandomNumber(1, 21, 20)
-
+	arr := generateRandomNumber(1, 11, 10)
+	exectime(shellSort, arr)
 	exectime(radixSort, arr)
+	exectime(QuickSort, arr)
 
 }

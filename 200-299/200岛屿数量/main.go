@@ -81,39 +81,39 @@ func helper1(grid [][]byte, i, j, n, m int) {
 }
 
 func numIslands4(grid [][]byte) int {
-    m:=len(grid)
-    n:=len(grid[0])
-    isvisteed:=make([][]int,m)
-    for i:=0;i<m;i++{
-        isvisteed[i]=make([]int,n)
-    }
-    cnt:=0
-    for i:=0;i<m;i++{
-        for j:=0;j<n;j++{
-            if grid[i][j]=='1'&&isvisteed[i][j]==0{
-                isvisteed[i][j]=1
-                DFS(grid,isvisteed,i,j)
-				fmt.Println(i,j)
-                cnt++
-            }
-        }
-    }
-    return cnt
+	m := len(grid)
+	n := len(grid[0])
+	isvisteed := make([][]int, m)
+	for i := 0; i < m; i++ {
+		isvisteed[i] = make([]int, n)
+	}
+	cnt := 0
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if grid[i][j] == '1' && isvisteed[i][j] == 0 {
+				isvisteed[i][j] = 1
+				DFS(grid, isvisteed, i, j)
+				fmt.Println(i, j)
+				cnt++
+			}
+		}
+	}
+	return cnt
 }
 
-func DFS(grid [][]byte,isvisteed [][]int,i,j int){
-    m:=len(grid)
-    n:=len(grid[0])
-    dx:=[]int{1,0,-1,0}
-    dy:=[]int{0,1,0,-1}
-    for i:=0;i<4;i++{
-        ni:=i+dx[i]
-        nj:=i+dy[i]
-        if ni>=0&&ni<m&&nj>=0&&nj<n&&isvisteed[ni][nj]==0&&grid[ni][nj]=='1'{
-            isvisteed[ni][nj]=1
-            DFS(grid,isvisteed,ni,nj)
-        }
-    }
+func DFS(grid [][]byte, isvisteed [][]int, i, j int) {
+	m := len(grid)
+	n := len(grid[0])
+	dx := []int{1, 0, -1, 0}
+	dy := []int{0, 1, 0, -1}
+	for i := 0; i < 4; i++ {
+		ni := i + dx[i]
+		nj := i + dy[i]
+		if ni >= 0 && ni < m && nj >= 0 && nj < n && isvisteed[ni][nj] == 0 && grid[ni][nj] == '1' {
+			isvisteed[ni][nj] = 1
+			DFS(grid, isvisteed, ni, nj)
+		}
+	}
 }
 func main() {
 	grid := [][]byte{

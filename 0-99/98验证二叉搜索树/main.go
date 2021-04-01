@@ -84,5 +84,5 @@ func isValidBST1(root *TreeNode) bool {
 }
 
 func main() {
-	fmt.Println(math.MaxInt64,math.MinInt64)
+	fmt.Println(math.MaxInt64, math.MinInt64)
 }

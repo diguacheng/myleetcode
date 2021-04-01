@@ -193,9 +193,48 @@ func numSquares4(n int) int {
 
 }
 
+func numSquares7(n int) int {
+	candidates := make([]int, 0)
+	i := 1
+	for i < n {
+		if i*i <= n {
+			candidates = append(candidates, i*i)
+			i++
+		} else {
+			break
+		}
+	}
+	dp := make([]int, n+1)
+	dp[1] = 1
+	for i := 2; i <= n; i++ {
+		dp[i] = n + 1
+		j := 0
+
+		for j < len(candidates) && i-candidates[j] > 0 {
+			dp[i] = min(dp[i-candidates[j]], dp[i])
+			j++
+		}
+		if j < len(candidates) && i == candidates[j] {
+			dp[i] = 1
+		} else {
+			dp[i] = dp[i] + 1
+		}
+	}
+	return dp[n]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
 func main() {
-	fmt.Println(numSquares3(12))
-	fmt.Println(12 & 3)
+	fmt.Println(numSquares7(12))
 	fmt.Println(numSquares4(12))
+	for i := 10; i < 100; i++ {
+		fmt.Println(numSquares7(i) == numSquares4(i))
+	}
 
 }

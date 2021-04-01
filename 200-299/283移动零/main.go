@@ -30,21 +30,19 @@ func moveZeroes(nums []int) {
 }
 
 func moveZeroes1(nums []int) {
-    left, right, n := 0, 0, len(nums)
-    for right < n {
+	left, right, n := 0, 0, len(nums)
+	for right < n {
 		fmt.Println(nums)
-        if nums[right] != 0 {
-            nums[left], nums[right] = nums[right], nums[left]
-            left++
-        }
-        right++
-    }
+		if nums[right] != 0 {
+			nums[left], nums[right] = nums[right], nums[left]
+			left++
+		}
+		right++
+	}
 }
 
-
-
 func main() {
-	s := []int{1,2,0,3,4}
+	s := []int{1, 2, 0, 3, 4}
 	moveZeroes1(s)
 	fmt.Println(s)
 

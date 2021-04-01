@@ -58,7 +58,7 @@ func (this *LFUCache) Put(key int, value int) {
 			this.Size--
 		}
 		this.Items = append(this.Items, it)
-		this.insertSort(this.Size-1)
+		this.insertSort(this.Size - 1)
 		return
 	}
 	this.Items[idx].Times++
@@ -95,6 +95,5 @@ func main() {
 	fmt.Println(l.Get(3))
 	fmt.Println(l.Get(4))
 	fmt.Println(l.Get(5))
-
 
 }
