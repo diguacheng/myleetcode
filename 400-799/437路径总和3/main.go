@@ -2,12 +2,18 @@ package main
 
 /**
  * Definition for a binary tree node.
- * type TreeNode struct {
+ type TreeNode struct {
  *     Val int
  *     Left *TreeNode
  *     Right *TreeNode
  * }
  */
+
+type TreeNode struct {
+     Val int
+     Left *TreeNode
+     Right *TreeNod
+}
 func pathSum(root *TreeNode, sum int) int {
 	res := 0
 	DFS(root, sum, sum, &res)

@@ -1,6 +1,5 @@
 package main
 
-import "github.com/spf13/cobra/cobra/cmd"
 
 func solveNQueens(n int) [][]string {
 	temp := []string{}
