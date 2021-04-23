@@ -12,7 +12,7 @@ package main
 type TreeNode struct {
      Val int
      Left *TreeNode
-     Right *TreeNod
+     Right *TreeNode
 }
 func pathSum(root *TreeNode, sum int) int {
 	res := 0
