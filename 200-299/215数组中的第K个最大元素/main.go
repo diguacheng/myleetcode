@@ -50,20 +50,51 @@ func povit(nums []int) int {
 	return idx
 }
 
-func heapSort(nums []int) {
-	l := len(nums) - 1
-	f := len(nums) / 2
-	for l >= f {
-
-	}
-}
 
 func findKthLargest1(nums []int, k int) int {
 	sort.Ints(nums)
 	return nums[len(nums)-k]
 }
 
+func findKthLargest3(nums []int, k int) int {
+    Qselect(nums,0,len(nums)-1,k)
+    return nums[k-1]
+}
+
+func Qselect(arr []int,l,r int,k int){
+    p:=Povit(arr,l,r)
+    if p+1==k{
+        return 
+    }
+    if p+1>k{
+        Qselect(arr,l,p-1,k)
+    }else{
+        Qselect(arr,p+1,r,k-p)
+    }
+}
+
+func Povit(arr []int,l,r int)int{
+    c:=r
+    for l<r{
+        for l<r&&arr[l]>=arr[r]{
+            l++
+        }
+        if l<r{
+            arr[l],arr[r]=arr[r],arr[l]
+            c=l
+        }
+        for l<r&&arr[r]<=arr[l]{
+            r--
+        }
+        if l<r{
+            arr[l],arr[r]=arr[r],arr[l]
+            c=r
+        }
+    }
+    return c 
+}
+
 func main() {
 	nums := []int{3, 2, 3, 1, 2, 4, 5, 5, 6}
-	fmt.Println(findKthLargest(nums, 4))
+	fmt.Println(findKthLargest3(nums, 4))
 }
